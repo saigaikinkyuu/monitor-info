@@ -8,5 +8,6 @@ function timeUpdate() {
   var second = now_time.getSeconds();
   var time = year + "/" + month + "/" + date + " " + hours + ":" + minute + ":" + second;
   document.getElementById('now_time').innerHTML = time;
+  console.log(time)
   setInterval(timeUpdate, 100);
 }
