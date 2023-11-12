@@ -114,6 +114,7 @@
     update();
   </script>
   <script>
+    function AmeDasu() {
     // URLからJSONデータを取得する例// 現在の日時を取得
     const currentDate = new Date();
 
@@ -121,13 +122,17 @@
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
-    const hours = String(currentDate.getHours()).padStart(2, '0')-1;
-    const minutes = '00';
-    const seconds = '00';
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+      if(minutes > 10){
+        //変更しない
+      }else{
+        hours = hours-1
+      }
 
     // 指定された形式の数値を作成
-    const formattedDate = `${year}${month}${day}${hours}${minutes}${seconds}`;
-    var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '.json'
+    const formattedDate = `${year}${month}${day}${hours}`;
+    var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
 
     console.log(formattedDate);
 
@@ -223,6 +228,9 @@
         document.getElementById('wind').textContent = "風速：" + wind + "m/s";
       })
       .catch(error => console.error("Error fetching data:", error));
+      setTimeout(update, 30000); // 1秒後に再度実行
+    }
+    AmeDasu();
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
