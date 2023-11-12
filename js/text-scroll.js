@@ -6,7 +6,7 @@ marqueeTexts.forEach((marqueeText) => {
       translate: [0, 'calc(-100% - 1rem)']
     },
     {
-      duration: 20000,
+      duration: 50000,
       iterations: Infinity
     }
   );
