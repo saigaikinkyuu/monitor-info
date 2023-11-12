@@ -113,6 +113,41 @@
         const precipi24h  = data["44132"].precipitation24h[0];
         const windDirection  = data["44132"].windDirection[0];
         const wind  = data["44132"].wind[0];
+        if(windDirection === 0){
+          windDirection = "静穏"
+        }else if(windDirection === 1){
+          windDirection = "北北東"
+        }else if(windDirection === 2){
+          windDirection = "北東"
+        }else if(windDirection === 3){
+          windDirection = "東北東"
+        }else if(windDirection === 4){
+          windDirection = "東"
+        }else if(windDirection === 5){
+          windDirection = "東南東"
+        }else if(windDirection === 6){
+          windDirection = "南東"
+        }else if(windDirection === 7){
+          windDirection = "南南東"
+        }else if(windDirection === 8){
+          windDirection = "南"
+        }else if(windDirection === 9){
+          windDirection = "南南西"
+        }else if(windDirection === 10){
+          windDirection = "南西"
+        }else if(windDirection === 11){
+          windDirection = "西南西"
+        }else if(windDirection === 12){
+          windDirection = "西"
+        }else if(windDirection === 13){
+          windDirection = "西北西"
+        }else if(windDirection === 14){
+          windDirection = "北西"
+        }else if(windDirectio === 15){
+          windDirection = "北北西"
+        }else if(windDirection === 16){
+          windDirection = "北"
+        }
         console.log(pressure)
         console.log(n_pressure)
         console.log(temp)
