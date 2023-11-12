@@ -1,15 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
-  function timeUpdate() {
-    var now_time = new Date();
-    var year = now_time.getFullYear();
-    var month = now_time.getMonth()+1;
-    var date = now_time.getDate();
-    var hours = now_time.getHours();
-    var minute = now_time.getMinutes();
-    var second = now_time.getSeconds();
-    var time = year + "/" + month + "/" + date + " " + hours + ":" + minute + ":" + second;
-    document.getElementById('now_time').innerHTML = time;
-    console.log(time)
-    setInterval(timeUpdate, 100);
+var element = document.getElementById("now_time");
+function update() {
+  element.textContent = new Date().toLocaleTimeString(); // 現在時刻を表示
+
+  // 次の更新処理を予約
+  setTimeout(update, 1000); // 1秒後に再度実行
 }
-});
+
+// 初回の更新処理を開始
+update();
