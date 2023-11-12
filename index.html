@@ -60,7 +60,8 @@
         thermostat
       </span>
       <h3 style="font-size: 1.5rem;">アメダス情報</h3>
-      <table>
+      <h3 style="font-size: 1.5rem;">観測地点：東京(東京管区気象台管理)</h3>
+      <table style="font-size: 2rem; width: 100%; text-align: center; font-weight: bold;">
         <tr>
           <td id="pressure"></td>
           <td id="n_pressure"></td>
@@ -204,22 +205,22 @@
         console.log(windDirection)
         console.log(windDirection_c)
         console.log(wind)
-        document.getElementById('pressure').textContent = pressure;
-        document.getElementById('n_pressure').textContent = n_pressure;
-        document.getElementById('temp').textContent = temp;
-        document.getElementById('humidity').textContent = humidity;
-        document.getElementById('snow1h').textContent = snow1h;
-        document.getElementById('snow6h').textContent = snow6h;
-        document.getElementById('snow12h').textContent = snow12h;
-        document.getElementById('snow24h').textContent = snow24h;
-        document.getElementById('sun10m').textContent = sun10m;
-        document.getElementById('sun1h').textContent = sun1h;
-        document.getElementById('precipi10m').textContent = precipi10m;
-        document.getElementById('precipi1h').textContent = precipi1h;
-        document.getElementById('precipi3h').textContent = precipi3h;
-        document.getElementById('precipi24h').textContent = precipi24h;
-        document.getElementById('windDirection').textContent = windDirection_c;
-        document.getElementById('wind').textContent = wind;
+        document.getElementById('pressure').textContent = "気圧：" + pressure + "hPa";
+        document.getElementById('n_pressure').textContent = "気圧(平均)：" + n_pressure + "hPa";
+        document.getElementById('temp').textContent = "気温：" + temp + "℃";
+        document.getElementById('humidity').textContent = "湿度：" + humidity + "%";
+        document.getElementById('snow1h').textContent = "降雪量(1時間)：" + snow1h;
+        document.getElementById('snow6h').textContent = "降雪量(6時間)：" + snow6h;
+        document.getElementById('snow12h').textContent = "降雪量(12時間)：" + snow12h;
+        document.getElementById('snow24h').textContent = "降雪量(24時間)：" + snow24h;
+        document.getElementById('sun10m').textContent = "日照時間(10分)：" + sun10m;
+        document.getElementById('sun1h').textContent = "日照時間(1時間)：" + sun1h;
+        document.getElementById('precipi10m').textContent = "降水量(10分間)：" + precipi10m;
+        document.getElementById('precipi1h').textContent = "降水量(1時間)：" + precipi1h;
+        document.getElementById('precipi3h').textContent = "降水量(3時間)：" + precipi3h;
+        document.getElementById('precipi24h').textContent = "降水量(24時間)：" + precipi24h;
+        document.getElementById('windDirection').textContent = "風向：" + windDirection_c;
+        document.getElementById('wind').textContent = "風速：" + wind;
       })
       .catch(error => console.error("Error fetching data:", error));
   </script>
