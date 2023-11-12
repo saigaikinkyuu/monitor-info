@@ -244,8 +244,9 @@
         const json_url  = data[0].json[0];
         fetch(json_url)
           .then(response => response.json())
-          .then(data => {
-            const json_url  = data[0].json[0];
+          .then(data_a => {
+            const title  = data_a[0].Control[0].Title.[0];
+            console.log(title)
           })
           .catch(error => console.error("Error fetching data:", error));
       })
