@@ -104,8 +104,38 @@
       .then(response => response.json())
       .then(data => {
         // "10"の中の値を取得
+        const pressure  = data["44132"].pressure[0];
+        const n_pressure  = data["44132"].normalPressure[0];
         const temp  = data["44132"].temp[0];
-        console.log(temp);
+        const humidity  = data["44132"].humidity[0];
+        const snow1h  = data["44132"].snow1h[0];
+        const snow6h  = data["44132"].snow6h[0];
+        const snow12h  = data["44132"].snow12h[0];
+        const snow24h  = data["44132"].snow24h[0];
+        const sun10m  = data["44132"].sun10m[0];
+        const sun1h  = data["44132"].sun1h[0];
+        const precipi10m  = data["44132"].precipitation10m[0];
+        const precipi1h  = data["44132"].precipitation1h[0];
+        const precipi3h  = data["44132"].precipitation3h[0];
+        const precipi24h  = data["44132"].precipitation24h[0];
+        const windDirection  = data["44132"].windDirection[0];
+        const wind  = data["44132"].wind[0];
+        console.log(pressure)
+        console.log(n_pressure)
+        console.log(temp)
+        console.log(humidity)
+        condole.log(snow1h)
+        console.log(snow6h)
+        console.log(snow12h)
+        console.log(snow24h)
+        console.log(sun10m)
+        console.log(sun1h)
+        console.log(precipi10m)
+        console.log(precipi1h)
+        console.log(precipi3h)
+        console.log(precipi24h)
+        console.log(widDirection)
+        console.log(wind)
       })
       .catch(error => console.error("Error fetching data:", error));
   </script>
