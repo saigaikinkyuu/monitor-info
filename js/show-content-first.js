@@ -2,6 +2,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       // 要素の表示スタイルを変更
-      document.getElementById('show-cont1').style.display = 'block';
+      document.getElementById('show-cont1').style.display = 'none';
     }, 10000); // 10000ミリ秒 = 10秒
     });
