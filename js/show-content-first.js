@@ -3,6 +3,6 @@
     setTimeout(function () {
       // 要素の表示スタイルを変更
       document.getElementById('show-cont1').style.display = 'none';
-      document.querySelectorAll('slideshow-container').style.display = 'block';
+      document.getElementById('slideshow-container').style.display = 'block';
     }, 10000); // 10000ミリ秒 = 10秒
     });
