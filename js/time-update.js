@@ -7,6 +7,6 @@ function timeUpdate() {
   var minute = now_time.getMinutes();
   var second = now_time.getSeconds();
   var time = year + "/" + month + "/" + date + " " + hours + ":" + minute + ":" + second;
-  document.getElementById('now_time').textContent = time;
+  document.getElementById('now_time').innerHTML = time;
   setInterval(timeUpdate, 100);
 }
