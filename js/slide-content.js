@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function () {
     showSlide(currentSlideIndex);
 
     // 5秒ごとにスライドを変更
-    setInterval(nextSlide, 6000);
+    setInterval(nextSlide, 15000);
   });
