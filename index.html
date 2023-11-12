@@ -5,10 +5,43 @@
     #show-cont1{
       display: block;
     }
+    .sideshow-container{
+      display: none;
+    }
+    .slideshow-container {
+      max-width: 400px;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
   </style>
 </head>
 <Body>
   <h2 id="show-cont1">Welcome!!  infomation-monitor</h2>
   <script src="./js/show-content-first.js"></script>
+  <div class="slideshow-container">
+    <div class="slide active" id="slide1">
+      <h2>Slide 1</h2>
+    </div>
+    <div class="slide" id="slide2">
+      <h2>Slide 2</h2>
+    </div>
+    <div class="slide" id="slide3">
+      <h2>Slide 3</h2>
+    </div>
+  </div>
 </Body>
 </html>
