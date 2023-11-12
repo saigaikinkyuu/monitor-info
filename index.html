@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <head>
   <title>Infomation-monitor</title>
-  <script src="./js/slide-content.js"></script>
-  <script src="./js/text-scroll.js"></script>
-  <script src="./js/show-content-first.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <style>
     #show-cont1{
@@ -46,6 +43,9 @@
   </style>
 </head>
 <Body>
+  <script src="./js/slide-content.js"></script>
+  <script src="./js/text-scroll.js"></script>
+  <script src="./js/show-content-first.js"></script>
   <h2 id="show-cont1">Welcome!!  infomation-monitor</h2>
   <div style="position: absolute; margin-left: 86%;">
     <h3 id="now_time" style="font-size: 30px;">《現在時刻》</h3>
@@ -75,7 +75,7 @@
   <script>
     function update() {
       var element = document.getElementById("now_time");
-      element.textContent = new Date(); // 現在時刻を表示
+      element.textContent = new Date().toLocaleTimeString();; // 現在時刻を表示
 
       // 次の更新処理を予約
       setTimeout(update, 1000); // 1秒後に再度実行
