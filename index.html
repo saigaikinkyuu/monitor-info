@@ -59,6 +59,40 @@
       <span class="material-symbols-outlined" style="font-size: 9rem;">
         thermostat
       </span>
+      <h3 style="font-size: 1.5rem;">アメダス情報</h3>
+      <table>
+        <tr>
+          <td id="pressure"></td>
+          <td id="n_pressure"></td>
+        </tr>
+        <tr>
+          <td id="temphumidity"></td>
+          <td id="snow1h"></td>
+        </tr>
+        <tr>
+          <td id="snow6h"></td>
+          <td id="snow12h"></td>
+        </tr>
+        <tr>
+          <td id="snow24h"></td>
+          <td id="sun10m"></td>
+        </tr>
+        <tr>
+          <td id="sun1h"></td>
+          <td id="precipi10m"></td>
+        </tr>
+        <tr>
+          <td id="precipi1h"></td>
+          <td id="precipi3h"></td>
+        </tr>
+        <tr>
+          <td id="precipi24h"></td>
+          <td id="windDirection"></td>
+        </tr>
+        <tr>
+          <td id="wind"></td>
+        </tr>
+      </table>
     </div>
   </div>
   <div class="marquee" style="background-color: #6497f4; color: white;">
@@ -167,6 +201,22 @@
         console.log(precipi24h)
         console.log(windDirection)
         console.log(wind)
+        document.getElementById('pressure').textContent = pressure;
+        document.getElementById('n_pressure').textContent = n_pressure;
+        document.getElementById('temp').textContent = temp;
+        document.getElementById('humidity').textContent = humidity;
+        document.getElementById('snow1h').textContent = snow1h;
+        document.getElementById('snow6h').textContent = snow6h;
+        document.getElementById('snow12h').textContent = snow12h;
+        document.getElementById('snow24h').textContent = snow24h;
+        document.getElementById('sun10m').textContent = sun10m;
+        document.getElementById('sun1h').textContent = sun1h;
+        document.getElementById('precipi10m').textContent = precipi10m;
+        document.getElementById('precipi1h').textContent = precipi1h;
+        document.getElementById('precipi3h').textContent = precipi3h;
+        document.getElementById('precipi24h').textContent = precipi24h;
+        document.getElementById('windDirection').textContent = windDirection;
+        document.getElementById('wind').textContent = wind;
       })
       .catch(error => console.error("Error fetching data:", error));
   </script>
