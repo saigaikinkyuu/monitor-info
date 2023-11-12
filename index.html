@@ -242,6 +242,7 @@
       .then(response => response.json())
       .then(data => {
         const json_url  = data[0].json[0];
+        console.log(json_url)
         fetch(json_url)
           .then(response => response.json())
           .then(data_a => {
