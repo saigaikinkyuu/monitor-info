@@ -1,5 +1,5 @@
-var element = document.getElementById("now_time");
 function update() {
+  var element = document.getElementById("now_time");
   element.textContent = new Date().toLocaleTimeString(); // 現在時刻を表示
 
   // 次の更新処理を予約
