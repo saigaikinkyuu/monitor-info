@@ -244,8 +244,8 @@
       .then(data => {
         const json_url  = data[0].json;
         console.log(json_url)
-        json_url = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
-        fetch(json_url)
+        const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
+        fetch(json_url_c)
           .then(response => response.json())
           .then(data_a => {
             const title  = data_a[0].Control.Title;
