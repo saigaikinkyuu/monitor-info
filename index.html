@@ -150,40 +150,41 @@
         const precipi24h  = data["44132"].precipitation24h[0];
         const windDirection  = data["44132"].windDirection[0];
         const wind  = data["44132"].wind[0];
+        var windDirection_c = "";
         if(windDirection === 0){
-          windDirection = "静穏"
+          windDirection_c = "静穏"
         }else if(windDirection === 1){
-          windDirection = "北北東"
+          windDirection_c = "北北東"
         }else if(windDirection === 2){
-          windDirection = "北東"
+          windDirection_c = "北東"
         }else if(windDirection === 3){
-          windDirection = "東北東"
+          windDirection_c = "東北東"
         }else if(windDirection === 4){
-          windDirection = "東"
+          windDirection_c = "東"
         }else if(windDirection === 5){
-          windDirection = "東南東"
+          windDirection_c = "東南東"
         }else if(windDirection === 6){
-          windDirection = "南東"
+          windDirection_c = "南東"
         }else if(windDirection === 7){
-          windDirection = "南南東"
+          windDirection_c = "南南東"
         }else if(windDirection === 8){
-          windDirection = "南"
+          windDirection_c = "南"
         }else if(windDirection === 9){
-          windDirection = "南南西"
+          windDirection_c = "南南西"
         }else if(windDirection === 10){
-          windDirection = "南西"
+          windDirection_c = "南西"
         }else if(windDirection === 11){
-          windDirection = "西南西"
+          windDirection_c = "西南西"
         }else if(windDirection === 12){
-          windDirection = "西"
+          windDirection_c = "西"
         }else if(windDirection === 13){
-          windDirection = "西北西"
+          windDirection_c = "西北西"
         }else if(windDirection === 14){
-          windDirection = "北西"
+          windDirection_c = "北西"
         }else if(windDirection === 15){
-          windDirection = "北北西"
+          windDirection_c = "北北西"
         }else if(windDirection === 16){
-          windDirection = "北"
+          windDirection_c = "北"
         }
         console.log(pressure)
         console.log(n_pressure)
@@ -200,6 +201,7 @@
         console.log(precipi3h)
         console.log(precipi24h)
         console.log(windDirection)
+        console.log(windDirection_c)
         console.log(wind)
         document.getElementById('pressure').textContent = pressure;
         document.getElementById('n_pressure').textContent = n_pressure;
@@ -215,7 +217,7 @@
         document.getElementById('precipi1h').textContent = precipi1h;
         document.getElementById('precipi3h').textContent = precipi3h;
         document.getElementById('precipi24h').textContent = precipi24h;
-        document.getElementById('windDirection').textContent = windDirection;
+        document.getElementById('windDirection').textContent = windDirection_c;
         document.getElementById('wind').textContent = wind;
       })
       .catch(error => console.error("Error fetching data:", error));
