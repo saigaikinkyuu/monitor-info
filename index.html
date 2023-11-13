@@ -270,7 +270,7 @@
               console.log(einfo_area);
               console.log(einfo_area_int);
             }
-            const dateObject = new Date(originalDateString);
+            const dateObject = new Date(time);
 
             const year = dateObject.getFullYear().toString().slice(-2); // 下2桁を取得
             const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
