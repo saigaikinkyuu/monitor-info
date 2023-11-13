@@ -233,10 +233,6 @@
     AmeDasu();
   </script>
   <script>
-    function decodeUnicodeEscapeSequence(str) {
-      return eval(`"${str}"`);
-    }
-
     function quake() {
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
@@ -249,13 +245,27 @@
           .then(response => response.json())
           .then(data => {
             const title  = data.Control.Title;
+            const coment1  = data.Head.Headline.Text;
+            const time = data.Body.Earthquake.OriginTime;
+            const hypocenter = data.Body.Earhquake.Hypocenter.Area.Name;
+            const mag = data.Body.Earhquake.Magnitude;
+            const coment2 = data.Body.Comments.ForecastComment.Text;
+            for (const areaObject of data.Body.Intensity.Observation.Pref) {
+              const einfo_area = pregObject.Name;
+              const einfo_area_int = pregObject.MaxInt;
+              console.log(einfo_area);
+              console.log(einfo_area_int);
+            }
             console.log(title)
+            console.log(coment1)
+            console.log(time)
+            console.log(hypocenter)
+            console.log(mag)
+            console.log(coment2)
           })
           .catch(error => console.error("Error fetching data:", error));
       })
       .catch(error => console.error("Error fetching data:", error));
-    const originalString = title;
-    const decodedString = decodeUnicodeEscapeSequence(originalString);
     }
     quake();
   </script>
