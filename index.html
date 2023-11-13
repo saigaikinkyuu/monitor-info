@@ -248,7 +248,7 @@
         fetch(json_url_c)
           .then(response => response.json())
           .then(data => {
-            const title  = data[0].Control.Title;
+            const title  = data.Control.Title;
             console.log(title)
           })
           .catch(error => console.error("Error fetching data:", error));
