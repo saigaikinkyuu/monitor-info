@@ -250,9 +250,9 @@
             const hypocenter = data.Body.Earthquake.Hypocenter.Area.Name;
             const mag = data.Body.Earthquake.Magnitude;
             const coment2 = data.Body.Comments.ForecastComment.Text;
-            for (const areaObject of data.Body.Intensity.Observation.Pref) {
-              const einfo_area = pregObject.Name;
-              const einfo_area_int = pregObject.MaxInt;
+            for (const prefObject of data.Body.Intensity.Observation.Pref) {
+              const einfo_area = prefObject.Name;
+              const einfo_area_int = prefObject.MaxInt;
               console.log(einfo_area);
               console.log(einfo_area_int);
             }
