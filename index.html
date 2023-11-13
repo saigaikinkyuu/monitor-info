@@ -258,10 +258,10 @@
             const mag = data.Body.Earthquake.Magnitude;
             const coment2 = data.Body.Comments.ForecastComment.Text;
             const maxint = data.Body.Intensity.Observation.MaxInt;
-            const einfo = "";
             for (const prefObject of data.Body.Intensity.Observation.Pref) {
               const einfo_area = prefObject.Name;
               const einfo_area_int = prefObject.MaxInt;
+              const einfo = "";
               einfo = einfo + "【" + einfo_area + "】 震度" + einfo_area_int + "　";
               console.log(einfo_area);
               console.log(einfo_area_int);
