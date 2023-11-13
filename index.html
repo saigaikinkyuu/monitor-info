@@ -262,7 +262,11 @@
               var einfo;
               const einfo_area = prefObject.Name;
               const einfo_area_int = prefObject.MaxInt;
+              if(einfo){
               einfo = einfo + "【" + einfo_area + "】 震度" + einfo_area_int + "　";
+              }else {
+              einfo = "【" + einfo_area + "】 震度" + einfo_area_int + "　";
+              }
               console.log(einfo_area);
               console.log(einfo_area_int);
             }
