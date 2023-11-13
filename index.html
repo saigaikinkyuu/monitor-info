@@ -53,7 +53,14 @@
         Earthquake
       </span>
       <h3 style="font-size: 2rem;">最新の地震情報</h3>
-      <h3 style="font-size: 2rem;">《地域等の情報が入ります》</h3>
+      <h3 id="title_e" style="font-size: 1.5rem; text-align: center;"></h3>
+      <h3 id="c1_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="c2_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="time_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="hypocenter_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="maxint_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="mag_e" style="font-size: 1.5rem;"></h3>
+      <h3 id="area_e" style="font-size: 1.5rem;"></h3>
     </div>
     <div class="slide" id="content3">
       <span class="material-symbols-outlined" style="font-size: 9rem;">
@@ -250,9 +257,12 @@
             const hypocenter = data.Body.Earthquake.Hypocenter.Area.Name;
             const mag = data.Body.Earthquake.Magnitude;
             const coment2 = data.Body.Comments.ForecastComment.Text;
+            const maxint = data.Body.Intensity.Observation.MaxInt;
+            const einfo = "";
             for (const prefObject of data.Body.Intensity.Observation.Pref) {
               const einfo_area = prefObject.Name;
               const einfo_area_int = prefObject.MaxInt;
+              einfo = einfo + "【" + einfo_area + "】 震度" + einfo_area_int + "　";
               console.log(einfo_area);
               console.log(einfo_area_int);
             }
@@ -262,6 +272,14 @@
             console.log(hypocenter)
             console.log(mag)
             console.log(coment2)
+            console.log(MaxInt)
+            document.getElementById("title_e").textContent = title;
+            document.getElementById("c1_e").textContent = coment1;
+            document.getElementById("c2_e").textContent = coment2;
+            document.getElementById("time_e").textContent = "発生時刻：" + time;
+            document.getElementById("hypocenter_e").textContent = "震源地：" + hypocenter;
+            document.getElementById("mag_e").textContent = "マグニチュード：" + mag;
+            document.getElementById("maxint_e").textContent = "最大震度：" + MaxInt;
           })
           .catch(error => console.error("Error fetching data:", error));
       })
