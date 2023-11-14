@@ -142,9 +142,6 @@
         var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
       }
 
-
-    console.log(formattedDate);
-
     const url = json_url;
     fetch(url)
       .then(response => response.json())
