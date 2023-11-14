@@ -133,13 +133,15 @@
     const minutes = String(currentDate.getMinutes()).padStart(2, '0');
       if(minutes > 10){
         const formattedDate = `${year}${month}${day}${hours}`;
+        // 指定された形式の数値を作成
+        var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
       }else{
         const hours_c = hours-1
         const formattedDate = `${year}${month}${day}${hours_c}`;
+        // 指定された形式の数値を作成
+        var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
       }
 
-    // 指定された形式の数値を作成
-    var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
 
     console.log(formattedDate);
 
