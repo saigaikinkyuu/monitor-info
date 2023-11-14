@@ -230,9 +230,7 @@
       .then(response => response.json())
       .then(data => {
         const json_url  = data[0].json;
-        console.log(json_url)
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
-        fetch(json_url_c)
           .then(response => response.json())
           .then(data => {
             const title  = data.Control.Title;
