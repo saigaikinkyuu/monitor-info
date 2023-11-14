@@ -132,13 +132,13 @@
     const hours = String(currentDate.getHours()).padStart(2, '0');
     const minutes = String(currentDate.getMinutes()).padStart(2, '0');
       if(minutes > 10){
-        //変更しない
+        const formattedDate = `${year}${month}${day}${hours}`;
       }else{
-        hours = hours-1
+        const hours_c = hours-1
+        const formattedDate = `${year}${month}${day}${hours_c}`;
       }
 
     // 指定された形式の数値を作成
-    const formattedDate = `${year}${month}${day}${hours}`;
     var json_url = 'https://www.jma.go.jp/bosai/amedas/data/map/' + formattedDate + '0000.json'
 
     console.log(formattedDate);
