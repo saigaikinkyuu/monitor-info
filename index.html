@@ -277,6 +277,24 @@
     }
     quake();
   </script>
+  <script>
+  function audio() {
+  // 音楽ファイルのURLを指定
+  var audioFile = '../audio/final_audio.mp3';
+  
+  const currentDate = new Date();
+  const hours = String(currentDate.getHours()).padStart(2, '0');
+  const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    if(minutes === "45" && hours === "21"){
+      // Audioオブジェクトを作成
+      var audio = new Audio(audioFile);
+      // 音楽再生
+      audio.play();
+    }
+    setTimeout(audio, 60000); // 1秒後に再度実行
+  }
+    audio();
+  </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
 </Body>
