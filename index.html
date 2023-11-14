@@ -231,6 +231,7 @@
       .then(data => {
         const json_url  = data[0].json;
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
+           fetch(url)
           .then(response => response.json())
           .then(data => {
             const title  = data.Control.Title;
