@@ -330,8 +330,9 @@
     dataUp();
   </script>
   <script>
-    document.addEventListener('keydown', event => {
-      if (event.code === "85") {
+    document.addEventListener('keydown', (e) => {
+      const key = e.keyCode;
+      if (key === 85) {
         console.log("Uキーが押されています")
         dataUp();
       }
