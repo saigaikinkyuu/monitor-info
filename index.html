@@ -295,9 +295,14 @@
     function dataUp(){
       AmeDasu()
       quake()
-      var newTime = new Date().getMinutes()*60000 + new Date().getSeconds()*1000
-      console.log(newTime)
-      setTimeout(dataUp, 60000); // 1秒後に再度実行
+      var newTime_M = new Date().getMinutes();
+      var newTime_S = new Date().getSeconds();
+      if(newTime_M < 30){
+        var time_M_S = 1800000 - (newTime_M*60000 + newTime_S*1000)
+      }else{
+        var time_M_S = 3600000 - (newTime_M*60000 + newTime_S*1000)
+      }
+      setTimeout(dataUp, time_M_S); // 1秒後に再度実行
     }
     dataUp();
   </script>
