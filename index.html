@@ -111,8 +111,8 @@
     <div class="marquee-inner" aria-hidden="true">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
   </div>
   </div>
-  <div id="upDate" style="background-color: #6497f4; height: 750px; display: none; width: 100%; margin-top: 0px; padding-top: 0px;">
-    <h2 style="text-align: center; color: white; font-size: 2.0rem; margin: 0px;">更新中</h2>
+  <div id="upDate" style="background-color: #6497f4; height: 700px; display: none; width: 100%; margin-top: 0px; padding-top: 0px;">
+    <h2 style="text-align: center; color: white; font-size: 3.0rem; margin: 0px; padding-top: 230px;">更新中</h2>
     <h3 style="text-align: center; color: white; font-size: 1.7rem;">毎時00分と30分は、データ更新の時間です。</h3>
     <h3 style="text-align: center; color: white; font-size: 1.7rem;">「U」キーを押すことで、更新することもできます。</h3>
   </div>
@@ -304,7 +304,7 @@
       $('#container').fadeOut(100, function() {
         console.log('フェードアウトされました！');
       });
-      $('#upDate').fadeIn(3000, function() {
+      $('#upDate').fadeIn(5000, function() {
         console.log('フェードインされました！');
       });
       AmeDasu()
@@ -319,10 +319,10 @@
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
       setTimeout(function(){
-      $('#container').fadeIn(3000, function() {
+      $('#container').fadeIn(100, function() {
         console.log('フェードインされました！');
       });
-      $('#upDate').fadeOut(3000, function() {
+      $('#upDate').fadeOut(5000, function() {
         console.log('フェードアウトされました！');
       });
       }, 15000);
