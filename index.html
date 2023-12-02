@@ -301,11 +301,11 @@
   </script>
   <script>
     function dataUp(){
-      $('#upDate').fadeIn(3000, function() {
-        console.log('フェードインされました！');
-      });
       $('#container').fadeOut(3000, function() {
         console.log('フェードアウトされました！');
+      });
+      $('#upDate').fadeIn(3000, function() {
+        console.log('フェードインされました！');
       });
       AmeDasu()
       quake()
