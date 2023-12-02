@@ -319,10 +319,10 @@
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
       setTimeout(function(){
-      $('#container').fadeIn(100, function() {
+      $('#container').fadeIn(5000, function() {
         console.log('フェードインされました！');
       });
-      $('#upDate').fadeOut(5000, function() {
+      $('#upDate').fadeOut(100, function() {
         console.log('フェードアウトされました！');
       });
       }, 15000);
