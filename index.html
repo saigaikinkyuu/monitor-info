@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Infomation-monitor</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <style>
     .slideshow-container {
@@ -108,6 +109,7 @@
     <div class="marquee-inner">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
     <div class="marquee-inner" aria-hidden="true">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
   </div>
+  <div style="background-color: #6497f4; height: 750px; z-index: 100000;"></div>
   <script>
     function update() {
       var element = document.getElementById("now_time");
@@ -304,6 +306,9 @@
       }
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
+      $('h1').fadeIn(3000, function() {
+        console.log('フェードインされました！');
+      });
     }
     dataUp();
   </script>
