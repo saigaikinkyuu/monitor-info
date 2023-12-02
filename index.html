@@ -38,6 +38,7 @@
   </style>
 </head>
 <Body>
+  <div style="position: absolute; z-index: 200;">
   <div style="position: absolute; margin-left: 86%;">
     <h3 id="now_time" style="font-size: 30px;">《現在時刻》</h3>
   </div>
@@ -109,7 +110,8 @@
     <div class="marquee-inner">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
     <div class="marquee-inner" aria-hidden="true">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
   </div>
-  <div style="background-color: #6497f4; height: 750px; z-index: 100000; position:absolute;"></div>
+  </div>
+  <div style="background-color: #6497f4; height: 750px; z-index: 1000; position:absolute;"></div>
   <script>
     function update() {
       var element = document.getElementById("now_time");
