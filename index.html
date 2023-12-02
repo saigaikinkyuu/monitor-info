@@ -38,7 +38,7 @@
   </style>
 </head>
 <Body>
-  <div style="display: block;">
+  <div style="display: block;" id="container">
   <div style="position: absolute; margin-left: 86%;">
     <h3 id="now_time" style="font-size: 30px;">《現在時刻》</h3>
   </div>
@@ -301,6 +301,12 @@
   </script>
   <script>
     function dataUp(){
+      $('upDate').fadeIn(3000, function() {
+        console.log('フェードインされました！');
+      });
+      $('container').fadeOut(3000, function() {
+        console.log('フェードアウトされました！');
+      });
       AmeDasu()
       quake()
       var newTime_M = new Date().getMinutes();
@@ -312,9 +318,14 @@
       }
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
-      $('h1').fadeIn(3000, function() {
+      setTimeout(function(){
+      $('container').fadeIn(3000, function() {
         console.log('フェードインされました！');
       });
+      $('upDate').fadeOut(3000, function() {
+        console.log('フェードアウトされました！');
+      });
+      }, 15000);
     }
     dataUp();
   </script>
