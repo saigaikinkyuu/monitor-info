@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function keyActionE() {
+    const slides = document.querySelectorAll('.slide');
     var currentSlideIndex = 1 % 3;
     // 最初の表示
     showSlide(currentSlideIndex);
