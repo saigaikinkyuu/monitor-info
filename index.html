@@ -303,10 +303,8 @@
   <script>
     function dataUp(){
       $('#container').fadeOut(100, function() {
-        console.log('フェードアウトされました！');
       });
       $('#upDate').fadeIn(5000, function() {
-        console.log('フェードインされました！');
       });
       AmeDasu()
       quake()
@@ -321,10 +319,8 @@
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
       setTimeout(function(){
       $('#container').fadeIn(5000, function() {
-        console.log('フェードインされました！');
       });
       $('#upDate').fadeOut(100, function() {
-        console.log('フェードアウトされました！');
       });
       }, 15000);
     }
@@ -334,10 +330,8 @@
     document.addEventListener('keydown', (e) => {
       const key = e.keyCode;
       if (key === 85) {
-        console.log("Uキーが押されています")
         dataUp();
       }else if (key === 69){
-        console.log("Eキーが押されています")
         keyActionE();
       }
     });
