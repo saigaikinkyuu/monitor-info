@@ -329,6 +329,14 @@
     }
     dataUp();
   </script>
+  <script>
+    document.addEventListener('keydown', event => {
+      if (event.ctrlKey && event.code === 'Slash') {
+        // 処理を書く
+        console.log('control + / です');
+      }
+    });
+  </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
 </Body>
