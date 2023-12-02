@@ -302,6 +302,7 @@
       }else{
         var time_M_S = 3600000 - (newTime_M*60000 + newTime_S*1000)
       }
+      console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
     }
     dataUp();
