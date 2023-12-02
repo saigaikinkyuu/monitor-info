@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function keyActionE() {
     if(flag === false){
+        document.getElementById("quake_fixed").style.display = "block";
         flag = true;
         const slides = document.querySelectorAll('.slide');
         var currentSlideIndex = 1 % 3;
@@ -36,6 +37,7 @@ function keyActionE() {
           });
         }
     }else{
+        document.getElementById("quake_fixed").style.display = "none";
         flag = false;
     }
 }
