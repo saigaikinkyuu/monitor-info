@@ -301,10 +301,10 @@
   </script>
   <script>
     function dataUp(){
-      $('upDate').fadeIn(3000, function() {
+      $('#upDate').fadeIn(3000, function() {
         console.log('フェードインされました！');
       });
-      $('container').fadeOut(3000, function() {
+      $('#container').fadeOut(3000, function() {
         console.log('フェードアウトされました！');
       });
       AmeDasu()
@@ -319,10 +319,10 @@
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
       setTimeout(function(){
-      $('container').fadeIn(3000, function() {
+      $('#container').fadeIn(3000, function() {
         console.log('フェードインされました！');
       });
-      $('upDate').fadeOut(3000, function() {
+      $('#upDate').fadeOut(3000, function() {
         console.log('フェードアウトされました！');
       });
       }, 15000);
