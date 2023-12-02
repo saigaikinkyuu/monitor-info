@@ -25,4 +25,9 @@ function keyActionE() {
     var currentSlideIndex = 1 % 3;
     // 最初の表示
     showSlide(currentSlideIndex);
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
 }
