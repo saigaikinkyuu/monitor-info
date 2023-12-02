@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function nextSlide() {
       currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-      console.log(slides.length)
       showSlide(currentSlideIndex);
     }
 
