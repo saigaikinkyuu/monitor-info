@@ -43,7 +43,7 @@ function keyActionE() {
 }
 function keyActionA() {
     if(flag === false){
-        document.getElementById("quake_fixed").style.display = "block";
+        document.getElementById("amds_fixed").style.display = "block";
         flag = true;
         const slides = document.querySelectorAll('.slide');
         var currentSlideIndex = 3 % 3;
