@@ -328,13 +328,19 @@
     dataUp();
   </script>
   <script>
+    let element_E = document.getElementById('quake_fixed');
+    let style_E = window.getComputedStyle(element_E);
+    let value_E = style_E.getPropertyValue('display');
+    let element_A = document.getElementById('amds_fixed');
+    let style_A = window.getComputedStyle(element_A);
+    let value_A = style_A.getPropertyValue('display');
     document.addEventListener('keydown', (e) => {
       const key = e.keyCode;
       if (key === 85) {
         dataUp();
-      }else if (key === 69){
+      }else if (key === 69 && value_A === "none"){
         keyActionE();
-      }else if (key === 65){
+      }else if (key === 65 && value_E === "none"){
         keyActionA();
       }
     });
