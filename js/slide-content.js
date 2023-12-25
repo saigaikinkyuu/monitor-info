@@ -55,7 +55,7 @@ function keyActionA() {
           });
         }
     }else{
-        document.getElementById("quake_fixed").style.display = "none";
+        document.getElementById("amds_fixed").style.display = "none";
         flag = false;
     }
 }
