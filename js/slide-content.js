@@ -41,3 +41,21 @@ function keyActionE() {
         flag = false;
     }
 }
+function keyActionA() {
+    if(flag === false){
+        document.getElementById("quake_fixed").style.display = "block";
+        flag = true;
+        const slides = document.querySelectorAll('.slide');
+        var currentSlideIndex = 3 % 3;
+        // 最初の表示
+        showSlide(currentSlideIndex);
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+          });
+        }
+    }else{
+        document.getElementById("quake_fixed").style.display = "none";
+        flag = false;
+    }
+}
