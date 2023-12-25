@@ -334,6 +334,8 @@
     let element_A = document.getElementById('amds_fixed');
     let style_A = window.getComputedStyle(element_A);
     let value_A = style_A.getPropertyValue('display');
+    console.log(value_A)
+    console.log(value_E)
     document.addEventListener('keydown', (e) => {
       const key = e.keyCode;
       if (key === 85) {
