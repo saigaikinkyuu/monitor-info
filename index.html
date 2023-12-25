@@ -328,6 +328,7 @@
     dataUp();
   </script>
   <script>
+    document.addEventListener('keydown', (e) => {
     let element_E = document.getElementById('quake_fixed');
     let style_E = window.getComputedStyle(element_E);
     let value_E = style_E.getPropertyValue('display');
@@ -336,7 +337,6 @@
     let value_A = style_A.getPropertyValue('display');
     console.log(value_A)
     console.log(value_E)
-    document.addEventListener('keydown', (e) => {
       const key = e.keyCode;
       if (key === 85) {
         dataUp();
