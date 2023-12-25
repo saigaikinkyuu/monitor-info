@@ -46,7 +46,7 @@ function keyActionA() {
         document.getElementById("amds_fixed").style.display = "block";
         flag = true;
         const slides = document.querySelectorAll('.slide');
-        var currentSlideIndex = 3 % 3;
+        var currentSlideIndex = 2 % 3;
         // 最初の表示
         showSlide(currentSlideIndex);
         function showSlide(index) {
