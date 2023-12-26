@@ -608,9 +608,10 @@ fetch(apiUrl)
       var weather_icon = "--"
     }
     weather_co += preArea + area + weather_icon;
-  })
+    console.log(weather_co)
     document.getElementById("weatherCo1").textContent = weather_co
     document.getElementById("weatherCo2").textContent = weather_co
+  })
   .catch(error => {
     // エラーが発生した場合の処理
     console.error('Error fetching JSON:', error.message);
