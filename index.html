@@ -363,6 +363,7 @@ fetch(apiUrl)
   })
   .then(data => {
     // 取得したJSONデータを使って何かしらの処理を行う
+    var preArea = data[0].publishingOffice:
     var area = data[0].timeSeries[0].areas[0].area.name
     var weather = data[0].timeSeries[0].areas[0].weatherCodes[0];
     var weather_icon = ""
@@ -605,7 +606,7 @@ fetch(apiUrl)
     }else{
       var weather_icon = "--"
     }
-    console.log(area + weather_icon + weather)
+    console.log(preArea + area + weather_icon + weather)
   })
   .catch(error => {
     // エラーが発生した場合の処理
