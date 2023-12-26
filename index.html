@@ -365,23 +365,22 @@ fetch(apiUrl)
     // 取得したJSONデータを使って何かしらの処理を行う
     var area = data[0].timeSeries[0].areas[0].area.name
     var weather = data[0].timeSeries[0].areas[0].weathers[0];
-    var partsArray = weather.split(/(\s+)/);
     var weather_icon = ""
-    for (var i = 0; i < partsArray.length; i++) {
+    weather.split('\u3000').forEach( function( value ) {
       console.log(weather[i])
-    if(weather[i] === "晴れ"){
+    if(value === "晴れ"){
       weather_icon += "☀"
-    }else if(weather[i] === "くもり"){
+    }else if(value === "くもり"){
       weather_icon += "☁"
-    }else if(weather[i] === "雨"){
+    }else if(value === "雨"){
       weather_icon += "☂"
-    }else if(weather[i] === "雪"){
+    }else if(value === "雪"){
       weather_icon += "❆"
-    }else if(weather[i] === "時々"){
+    }else if(value === "時々"){
       weather_icon += "/"
-    }else if(weather[i] === "後"){
+    }else if(value === "後"){
       weather_icon += "〉"
-    }else if(weather[i] === "から"){
+    }else if(value === "から"){
       weather_icon += "〉"
     }else{
       weather_icon += "";
