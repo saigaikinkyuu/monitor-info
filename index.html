@@ -352,6 +352,46 @@
     });
   </script>
   <script>
+    // 天気予報のJSONデータを取得する関数
+function getWeatherData() {
+  // 気象庁の天気予報JSONのURL
+  var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json'; // 実際のURLは気象庁の公式サイトで確認してください
+
+  // Ajaxリクエストの作成
+  var xhr = new XMLHttpRequest();
+
+  // リクエストの設定
+  xhr.open('GET', apiUrl, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  // リクエストが成功した場合の処理
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // レスポンスデータの取得
+      var responseData = JSON.parse(xhr.responseText);
+      
+      // レスポンスデータをコンソールに表示（デバッグ用）
+      console.log(responseData);
+
+      // ここで responseData を利用して天気情報の表示や処理を行うことができます
+    } else {
+      // エラー時の処理
+      console.error('Error fetching weather data. Status code: ' + xhr.status);
+    }
+  };
+
+  // リクエストのエラー時の処理
+  xhr.onerror = function () {
+    console.error('Network error occurred');
+  };
+
+  // リクエストの送信
+  xhr.send();
+}
+
+// 関数の呼び出し
+getWeatherData();
+
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
