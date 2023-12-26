@@ -622,7 +622,7 @@ fetch(apiUrl)
       }else if(i === 1){
         weather_co2 += preArea + area + "　" + weather_icon + "　　";
       }
-      weather_co += weather_co1 + weather_co2;
+      weather_co = weather_co1 + weather_co2;
     console.log(weather_co)
     document.getElementById("weatherCo1").textContent = weather_co
     document.getElementById("weatherCo2").textContent = weather_co
