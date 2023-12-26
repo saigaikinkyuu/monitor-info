@@ -347,14 +347,16 @@
   </script>
   <script>
     // JSONデータを取得するURL
-var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130010.json'; // ここを実際のAPIエンドポイントに変更
+var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json';
 
-// Fetch APIを使用してJSONデータを取得
+// fetchを使用してJSONデータを取得
 fetch(apiUrl)
   .then(response => {
+    // レスポンスが成功したかどうかを確認
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
+    // JSONデータを返す
     return response.json();
   })
   .then(data => {
@@ -362,9 +364,9 @@ fetch(apiUrl)
     console.log(data);
   })
   .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
+    // エラーが発生した場合の処理
+    console.error('Error fetching JSON:', error.message);
   });
-
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
