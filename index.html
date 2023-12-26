@@ -347,41 +347,38 @@
   </script>
   <script>
     $(document).ready(function() {
-    var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json';
+    var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130010.json';
 
     $.getJSON(apiUrl, function(data) {
-        // エラーチェック
-        if (!data || !data[0] || !data[0].timeSeries || !data[0].timeSeries[0]) {
-            console.error('Invalid data format');
-            return;
-        }
+        console.log(data);
 
-        // 東京地方の天気予報情報を取得
-        var tokyoForecast = data[0].timeSeries[0].areas.find(function(area) {
-            return area.area.name === '東京地方';
-        });
+        // 気温の取得例
+        var temperature = data.timeSeries[0].areas[0].temps[0] || 'N/A';
 
-        if (!tokyoForecast) {
-            console.error('Tokyo forecast not found');
-            return;
-        }
+        // 天気の取得例
+        var weatherCode = data.timeSeries[0].areas[0].weatherCodes[0];
+        var weather = getWeatherDescription(weatherCode) || 'N/A';
 
-        // 気温、天気、風速、風向の取得例
-        var temperature = tokyoForecast.temps ? tokyoForecast.temps[0] : 'N/A';
-        var weather = tokyoForecast.weathers ? tokyoForecast.weathers[0] : 'N/A';
-        var windSpeed = tokyoForecast.winds ? tokyoForecast.winds[0] : 'N/A';
-        var windDirection = tokyoForecast.winds ? tokyoForecast.winds[0] : 'N/A';
+        // 風速と風向の取得例
+        var windSpeed = data.timeSeries[0].areas[0].winds[0] || 'N/A';
 
-        // 取得したデータを使って表示などの処理を行う
+        // ここで取得したデータを使って表示などの処理を行う
         console.log('気温: ' + temperature);
         console.log('天気: ' + weather);
         console.log('風速: ' + windSpeed);
-        console.log('風向: ' + windDirection);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.error('Error fetching weather data:', textStatus, errorThrown);
     });
+
+    // 天気コードを天気の説明に変換する関数
+    function getWeatherDescription(weatherCode) {
+        // ここで天気コードに基づいて適切な天気の説明を返す処理を実装する
+        // 例えば、気象庁の天気コードに基づく対応が必要です
+        return '天気の説明';
+    }
 });
+
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
