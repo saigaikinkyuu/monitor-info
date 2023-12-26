@@ -367,7 +367,7 @@ fetch(apiUrl)
     var weather = data[0].timeSeries[0].areas[0].weathers[0];
     var weather_icon = ""
     weather.split('\u3000').forEach( function( value ) {
-      console.log(weather[i])
+      console.log(value)
     if(value === "晴れ"){
       weather_icon += "☀"
     }else if(value === "くもり"){
