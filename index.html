@@ -366,7 +366,7 @@ fetch(apiUrl)
     var area = data[0].timeSeries[0].areas[0].area.name
     var weather = data[0].timeSeries[0].areas[0].weathers[0];
     var partsArray = weather.split('\u3000');
-    var weather_icon
+    var weather_icon = ""
     for (var i = 0; i < partsArray.length; i++) {
     if(weather[i] === "晴れ"){
       weather_icon += "☀"
@@ -386,7 +386,7 @@ fetch(apiUrl)
       weather_icon += "";
     }
     }
-    console.log(area + weather_icon)
+    console.log(area + weather_icon + partsArray)
   })
   .catch(error => {
     // エラーが発生した場合の処理
