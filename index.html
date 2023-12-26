@@ -365,7 +365,8 @@ fetch(apiUrl)
     // 取得したJSONデータを使って何かしらの処理を行う
     var area = data[0].timeSeries[0].areas[0].area.name
     var weather = data[0].timeSeries[0].areas[0].weathers[0];
-    var partsArray = weather.split('\u3000');;
+    var weatherTest = "雪　夕方　まで　時々　くもり"
+    var partsArray = weatherTest.split('\u3000');;
     var weather_icon = ""
     for (var i = 0; i < partsArray.length; i++) {
       console.log(weather[i])
