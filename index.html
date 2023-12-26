@@ -109,8 +109,8 @@
     </div>
   </div>
   <div class="marquee" style="background-color: #6497f4; color: white;">
-    <div class="marquee-inner">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
-    <div class="marquee-inner" aria-hidden="true">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
+    <div class="marquee-inner" id="weatherCo1">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
+    <div class="marquee-inner" aria-hidden="true" id="weatherCo2">地震が発生したら、音声と文字にてお知らせいたします。「ここに、天気・過去の地震情報等を表記いたします【テスト】　札幌　☀　　青森　☁　　仙台　☁　　新潟　☀　　金沢　☁　　東京　☂　　　　《省略》　　　那覇　☂」</div>
   </div>
   </div>
   <div id="upDate" style="background-color: #6497f4; height: 700px; display: none; width: 100%; margin-top: 0px; padding-top: 0px;">
@@ -346,6 +346,7 @@
     });
   </script>
   <script>
+    var weather_co = "";
     var areaArray = ["011000","012000","013000","014100","016000","017000","020000","030000","040000","050000","060000","070000","080000","090000","100000","110000","120000","130000","140000","200000","210000","220000","230000","240000","150000","160000","170000","180000","250000","260000","270000","280000","290000","300000","310000","320000","330000","340000","360000","370000","380000","390000","350000","400000","410000","420000","430000","440000","450000","460100","471000","472000","473000","474000"]
     for (var n = 0;n<areaArray.length;n++){
     // JSONデータを取得するURL
@@ -606,13 +607,15 @@ fetch(apiUrl)
     }else{
       var weather_icon = "--"
     }
-    console.log(preArea + area + weather_icon + weather)
+    weather_co += preArea + area + weather_icon;
   })
   .catch(error => {
     // エラーが発生した場合の処理
     console.error('Error fetching JSON:', error.message);
   });
     }
+    document.getElementById("weatherCo1").textContent = weather_co
+    document.getElementById("weatherCo2").textContent = weather_co
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
