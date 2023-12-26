@@ -361,7 +361,7 @@ fetch(apiUrl)
   })
   .then(data => {
     // 取得したJSONデータを使って何かしらの処理を行う
-    console.log(data);
+    var area = data[0].timeSeries[0].areas.area.name
   })
   .catch(error => {
     // エラーが発生した場合の処理
