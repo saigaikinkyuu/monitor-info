@@ -348,7 +348,13 @@
   <script>
     var weather_co = "";
     var areaArray = ["011000","012000","013000","014100","016000","017000","020000","030000","040000","050000","060000","070000","080000","090000","100000","110000","120000","130000","140000","200000","210000","220000","230000","240000","150000","160000","170000","180000","250000","260000","270000","280000","290000","300000","310000","320000","330000","340000","360000","370000","380000","390000","350000","400000","410000","420000","430000","440000","450000","460100","471000","472000","473000","474000"]
-    for (var n = 0;n<areaArray.length;n++){
+    for (var i = 0;i<2;i++){
+      if(i === 0){
+        weather_co += "今日の天気　"
+      }else if(i === 1){
+        weather_co += "明日の天気　"
+      }
+      for (var n = 0;n<areaArray.length;n++){
     // JSONデータを取得するURL
 var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/' + areaArray[n] + '.json';
 
@@ -366,7 +372,11 @@ fetch(apiUrl)
     // 取得したJSONデータを使って何かしらの処理を行う
     var preArea = data[0].publishingOffice;
     var area = data[0].timeSeries[0].areas[0].area.name;
+      if(i === 0){
     var weather = data[0].timeSeries[0].areas[0].weatherCodes[0];
+      }else if(i === 1){
+    var weather = data[0].timeSeries[0].areas[0].weatherCodes[1];
+      }
     var weather_icon = ""
     if(weather === "100"){
       var weather_icon = "☀"
@@ -616,6 +626,7 @@ fetch(apiUrl)
     // エラーが発生した場合の処理
     console.error('Error fetching JSON:', error.message);
   });
+    }
     }
   </script>
   <script src="./js/slide-content.js"></script>
