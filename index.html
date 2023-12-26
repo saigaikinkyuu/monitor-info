@@ -355,7 +355,17 @@ $(document).ready(function() {
         // 取得したデータをコンソールに表示
         console.log(data);
 
+        // 気温、天気、風速、風向の取得例
+        var temperature = data.temperature.max; // 最高気温
+        var weather = data.telop; // 天気
+        var windSpeed = data.wind.speed; // 風速
+        var windDirection = data.wind.direction; // 風向
+
         // ここで取得したデータを使って表示などの処理を行う
+        console.log('気温: ' + temperature);
+        console.log('天気: ' + weather);
+        console.log('風速: ' + windSpeed);
+        console.log('風向: ' + windDirection);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         // エラーが発生した場合の処理
