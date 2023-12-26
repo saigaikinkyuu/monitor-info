@@ -609,13 +609,13 @@ fetch(apiUrl)
     }
     weather_co += preArea + area + weather_icon;
   })
+    document.getElementById("weatherCo1").textContent = weather_co
+    document.getElementById("weatherCo2").textContent = weather_co
   .catch(error => {
     // エラーが発生した場合の処理
     console.error('Error fetching JSON:', error.message);
   });
     }
-    document.getElementById("weatherCo1").textContent = weather_co
-    document.getElementById("weatherCo2").textContent = weather_co
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
