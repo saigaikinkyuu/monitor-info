@@ -345,8 +345,7 @@
       }
     });
   </script>
-  <script>
-$(document).ready(function() {
+  <script>$(document).ready(function() {
     // 天気予報のAPIエンドポイント
     var apiUrl = 'https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json'; // ここを実際のAPIエンドポイントに変更
 
@@ -355,23 +354,23 @@ $(document).ready(function() {
         // 取得したデータをコンソールに表示
         console.log(data);
 
-        // 気温、天気、風速、風向の取得例
-        var temperature = data.temperature.max; // 最高気温
-        var weather = data.telop; // 天気
-        var windSpeed = data.wind.speed; // 風速
-        var windDirection = data.wind.direction; // 風向
+        // 気温の取得例
+        if (data.timeSeries && data.timeSeries[0] && data.timeSeries[0].areas) {
+            data.timeSeries[0].areas.forEach(function(area) {
+                var areaName = area.area.name;
+                var tempsMin = area.tempsMin ? area.tempsMin[0] : 'N/A'; // 最低気温
+                var tempsMax = area.tempsMax ? area.tempsMax[0] : 'N/A'; // 最高気温
 
-        // ここで取得したデータを使って表示などの処理を行う
-        console.log('気温: ' + temperature);
-        console.log('天気: ' + weather);
-        console.log('風速: ' + windSpeed);
-        console.log('風向: ' + windDirection);
+                console.log(areaName + ' - 最低気温: ' + tempsMin + '℃, 最高気温: ' + tempsMax + '℃');
+            });
+        }
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         // エラーが発生した場合の処理
         console.error('Error fetching weather data:', textStatus, errorThrown);
     });
 });
+
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
