@@ -39,6 +39,10 @@
   </style>
 </head>
 <Body>
+<audio controls id="audioPlayer">
+    <source src="../audio/warning.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
   <div style="display: block;" id="container">
     <h3 id="quake_fixed" style="background-color: #00000066; position: absolute; margin-left: 46%; margin-top: 0%; color: white; display: none;">(固定)地震情報</h3>
     <h3 id="amds_fixed" style="background-color: #00000066; position: absolute; margin-left: 46%; margin-top: 0%; color: white; display: none;">(固定)AMDS情報</h3>
@@ -685,20 +689,18 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-              // Web Audio APIを初期化
-              const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-              
-              // Audio要素を作成
-              const audioElement = new Audio();
-              
-              // URLから音楽ファイルを読み込む
-              audioElement.src = '../audio/warning.mp3';
-              
-              // Audio要素をWeb Audio APIに接続
-              const sourceNode = audioContext.createMediaElementSource(audioElement);
-              sourceNode.connect(audioContext.destination);
-              // 音楽を再生
-              audioElement.play();
+            
+            // JavaScriptでオーディオ要素を取得
+            var audioPlayer = document.getElementById('audioPlayer');
+
+            // 再生する音楽のURLを設定
+            var musicUrl = '../audio/warning.mp3'; // 実際の音楽ファイルのURLに置き換えてください
+
+            // オーディオ要素のソースを更新
+            audioPlayer.src = musicUrl;
+
+            // オーディオ再生
+            audioPlayer.play();
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
