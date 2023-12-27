@@ -683,7 +683,7 @@ fetch(apiUrl)
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
-            setTimeout(closeQuake, 5*60*1000); // 1秒後に再度実行
+            setTimeout(closeQuake, 300000); // 1秒後に再度実行
             function closeQuake() {
             document.getElementById("container").style.display = "block"
             document.getElementById("upDate").style.display = "block"
