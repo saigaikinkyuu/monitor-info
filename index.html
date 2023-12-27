@@ -327,10 +327,12 @@
       console.log(time_M_S)
       setTimeout(dataUp, time_M_S); // 1秒後に再度実行
       setTimeout(function(){
+        if(quake_info_condition === false){
       $('#container').fadeIn(5000, function() {
       });
       $('#upDate').fadeOut(100, function() {
       });
+        }
       }, 15000);
     }
     dataUp();
@@ -641,7 +643,7 @@ fetch(apiUrl)
     }
   </script>
   <script>
-    
+    var quake_info_condition = false;
     function newquake() {
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
@@ -651,11 +653,12 @@ fetch(apiUrl)
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         const currentime = new Date()
-        if(ctt > currentime){
+        if(ctt > currentime && quake_info_condition === false){
           console.log("地震の確認！！")
         }else{
           console.log("地震未発生：" + currentime + ctt)
         }
+        if(quake_info_condition === false){
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
            fetch(json_url_c)
           .then(response => response.json())
@@ -680,11 +683,13 @@ fetch(apiUrl)
             document.getElementById("hypocenterE").textContent = "震源地：" + hypocenter;
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
+            quake_info_condition = true;
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
             setTimeout(closeQuake, 300000); // 1秒後に再度実行
             function closeQuake() {
+            quake_info_condition = false;
             document.getElementById("container").style.display = "block"
             document.getElementById("upDate").style.display = "block"
             document.getElementById("newQuake").style.display = "none"
@@ -692,6 +697,7 @@ fetch(apiUrl)
             setTimeout(newquake, 60000); // 1秒後に再度実行
           })
           .catch(error => console.error("Error fetching data:", error));
+        }
       })
       .catch(error => console.error("Error fetching data:", error));
     }
