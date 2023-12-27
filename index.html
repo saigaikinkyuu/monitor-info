@@ -648,6 +648,7 @@ fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
         const json_url  = data[0].json;
+        const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         const currentime = new Date()
         if(ctt > currentime){
