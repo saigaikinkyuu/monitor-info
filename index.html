@@ -685,12 +685,22 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-            let warning = new Howl({
-              src: ["./audio/warning.mp3"],
-              loop: false,// 繰り返し再生をする/しない
-              volume: 1.0,// 音量(0.0 ~ 1.0)
-            });
-            warning.play();// サウンドの再生
+            window.onload = function() {
+              // Web Audio APIを初期化
+              const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+              
+              // Audio要素を作成
+              const audioElement = new Audio();
+              
+              // URLから音楽ファイルを読み込む
+              audioElement.src = '../audio/warning.mp3';
+              
+              // Audio要素をWeb Audio APIに接続
+              const sourceNode = audioContext.createMediaElementSource(audioElement);
+              sourceNode.connect(audioContext.destination);
+              // 音楽を再生
+              audioElement.play();
+            };
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
