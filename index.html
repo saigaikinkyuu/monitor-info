@@ -685,6 +685,7 @@ fetch(apiUrl)
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
             let warningAudio = new Audio('./audio/warning.mp3');
+            warningAudio.autoplay = true;
             warningAudio.play(); // 再生
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
