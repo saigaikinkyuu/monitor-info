@@ -641,12 +641,13 @@ fetch(apiUrl)
       .then(data => {
         const json_url  = data[0].json;
         const ctt  = new Date(data[0].rdt);
-        const currntime = new Date()
-        if(ctt > currenttime){
+        const currentime = new Date()
+        if(ctt > currentime){
           console.log("地震の確認！！")
         }else{
           console.log("地震未発生：" + currenttime + ctt)
         }
+        return
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
            fetch(json_url_c)
           .then(response => response.json())
