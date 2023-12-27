@@ -685,7 +685,6 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-            window.onload = function() {
               // Web Audio APIを初期化
               const audioContext = new (window.AudioContext || window.webkitAudioContext)();
               
@@ -700,7 +699,6 @@ fetch(apiUrl)
               sourceNode.connect(audioContext.destination);
               // 音楽を再生
               audioElement.play();
-            };
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
