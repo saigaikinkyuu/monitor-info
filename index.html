@@ -690,17 +690,19 @@ fetch(apiUrl)
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
             
-            // JavaScriptでオーディオ要素を取得
-            var audioPlayer = document.getElementById('audioPlayer');
+            // Web Audio APIを使用して音楽を再生する関数
+            function playMusicFromURL(url) {
+              const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+              const audioElement = new Audio(url);
+              const source = audioContext.createMediaElementSource(audioElement);
 
-            // 再生する音楽のURLを設定
-            var musicUrl = '../audio/warning.mp3'; // 実際の音楽ファイルのURLに置き換えてください
+              source.connect(audioContext.destination);
+              audioElement.play();
+            }
 
-            // オーディオ要素のソースを更新
-            audioPlayer.src = musicUrl;
-
-            // オーディオ再生
-            audioPlayer.play();
+            // 例: 音楽を再生する
+            const musicURL = 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3';
+            playMusicFromURL(musicURL);
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
