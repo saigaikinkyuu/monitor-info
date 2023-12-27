@@ -689,20 +689,19 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-            
-            // Web Audio APIを使用して音楽を再生する関数
-            function playMusicFromURL(url) {
-              const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-              const audioElement = new Audio(url);
-              const source = audioContext.createMediaElementSource(audioElement);
+            document.addEventListener('DOMContentLoaded', function() {
+              // ページが読み込まれた後にユーザーとの対話を確認し、それから音楽を再生する
+              document.body.addEventListener('click', function() {
+              const musicURL = 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3';
+              playMusicFromURL(musicURL);
+              });
+            });
 
-              source.connect(audioContext.destination);
+            function playMusicFromURL(url) {
+              const audioElement = document.getElementById('musicPlayer');
+              audioElement.src = url;
               audioElement.play();
             }
-
-            // 例: 音楽を再生する
-            const musicURL = 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3';
-            playMusicFromURL(musicURL);
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
