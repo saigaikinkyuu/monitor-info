@@ -695,13 +695,14 @@ fetch(apiUrl)
     const audioElement = new Audio(url);
     const source = audioContext.createMediaElementSource(audioElement);
 
-    // ユーザーアクションを待たずに再生を試みる
-    try {
-      await audioContext.resume();
-      audioElement.play();
-    } catch (error) {
-      console.error('Failed to play music:', error);
-    }
+    // ページ読み込み時に音楽をミュート再生
+    audioElement.muted = true;
+    audioElement.play();
+    
+    // ユーザーがボタンをクリックすると、ミュートを解除して音声を再生
+    document.getElementById('playButton').addEventListener('click', function() {
+      audioElement.muted = false;
+    });
   }
 
   // 例: 音楽を再生する
