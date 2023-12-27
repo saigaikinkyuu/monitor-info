@@ -371,7 +371,6 @@ fetch(apiUrl)
     var preArea = data[0].publishingOffice;
     var area = data[0].timeSeries[0].areas[0].area.name;
     for (var i = 0;i<2;i++){
-    console.log(i)
       if(i === 0){
     var weather = data[0].timeSeries[0].areas[0].weatherCodes[0];
       }else if(i === 1){
@@ -623,7 +622,6 @@ fetch(apiUrl)
         weather_co2 += preArea + area + "　" + weather_icon + "　　";
       }
       weather_co = weather_co1 + weather_co2;
-    console.log(weather_co)
     document.getElementById("weatherCo1").textContent = weather_co
     document.getElementById("weatherCo2").textContent = weather_co
     }
@@ -632,6 +630,65 @@ fetch(apiUrl)
     // エラーが発生した場合の処理
     console.error('Error fetching JSON:', error.message);
   });
+    }
+  </script>
+  <script>
+    
+    function newquake() {
+    const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const json_url  = data[0].json;
+        const ctt  = new Date(data[0].rdt);
+        const currntime = new Date()
+        if(ctt > currenttime){
+          console.log("地震の確認！！")
+        }else{
+          console.log("地震未発生：" + currenttime + ctt)
+        }
+        const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
+           fetch(json_url_c)
+          .then(response => response.json())
+          .then(data => {
+            const coment1  = data.Head.Headline.Text;
+            const time = data.Body.Earthquake.OriginTime;
+            const hypocenter = data.Body.Earthquake.Hypocenter.Area.Name;
+            const mag = data.Body.Earthquake.Magnitude;
+            const coment2 = data.Body.Comments.ForecastComment.Text;
+            const maxint = data.Body.Intensity.Observation.MaxInt;
+            for (const prefObject of data.Body.Intensity.Observation.Pref) {
+              var einfo;
+              const einfo_area = prefObject.Name;
+              const einfo_area_int = prefObject.MaxInt;
+              if(einfo){
+              einfo = einfo + "【" + einfo_area + "】 震度" + einfo_area_int + "　";
+              }else {
+              einfo = "【" + einfo_area + "】 震度" + einfo_area_int + "　";
+              }
+            }
+            const dateObject = new Date(time);
+
+            const year = dateObject.getFullYear().toString().slice(-2); // 下2桁を取得
+            const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+            const day = dateObject.getDate().toString().padStart(2, '0');
+            const hours = dateObject.getHours().toString().padStart(2, '0');
+            const minutes = dateObject.getMinutes().toString().padStart(2, '0');
+
+            time_e = `${year}年${month}月${day}日 ${hours}時${minutes}分`;
+            document.getElementById("title_e").textContent = title;
+            document.getElementById("c1_e").textContent = coment1;
+            document.getElementById("c2_e").textContent = coment2;
+            document.getElementById("time_e").textContent = "発生時刻：" + time_e;
+            document.getElementById("hypocenter_e").textContent = "震源地：" + hypocenter;
+            document.getElementById("mag_e").textContent = "マグニチュード：" + mag;
+            document.getElementById("maxint_e").textContent = "最大震度：" + maxint;
+            document.getElementById("area_e").textContent = "震度観測値：" + einfo;
+            setTimeout(quake, 60000); // 1秒後に再度実行
+          })
+          .catch(error => console.error("Error fetching data:", error));
+      })
+      .catch(error => console.error("Error fetching data:", error));
     }
   </script>
   <script src="./js/slide-content.js"></script>
