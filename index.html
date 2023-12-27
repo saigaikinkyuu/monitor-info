@@ -690,20 +690,18 @@ fetch(apiUrl)
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
   // Web Audio APIを使用して音楽を再生する関数
-  function playMusic(url) {
+  async function playMusic(url) {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const audioElement = new Audio(url);
     const source = audioContext.createMediaElementSource(audioElement);
 
-    // ユーザーアクションを待ってから再生を試みる
-    document.addEventListener('click', async function() {
-      try {
-        await audioContext.resume();
-        audioElement.play();
-      } catch (error) {
-        console.error('Failed to play music:', error);
-      }
-    });
+    // ユーザーアクションを待たずに再生を試みる
+    try {
+      await audioContext.resume();
+      audioElement.play();
+    } catch (error) {
+      console.error('Failed to play music:', error);
+    }
   }
 
   // 例: 音楽を再生する
