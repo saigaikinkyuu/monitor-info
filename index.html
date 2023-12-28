@@ -647,7 +647,7 @@ fetch(apiUrl)
   <script>
     var quake_info_condition = false;
     function newquake() {
-    const url = "";
+    const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
       .then(response => response.json())
       .then(data => {
