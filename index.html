@@ -647,13 +647,13 @@ fetch(apiUrl)
   <script>
     var quake_info_condition = false;
     function newquake() {
-    const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
+    const url = "";
     fetch(url)
       .then(response => response.json())
       .then(data => {
         const json_url  = data[0].json;
         const title  = data[0].ttl;
-        const ctt  = new Date(data[0].rdt);
+        const ctt  = new Date("2023-12-28T18:14:00+09:00");
         const currentime = new Date()
         if(ctt > currentime && quake_info_condition === false){
           console.log("地震の確認！！")
