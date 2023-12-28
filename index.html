@@ -686,7 +686,13 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-            document.getElementById("audioPlayer").play();
+            const music = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3',
+              autoplay: true,
+              volume: 0.5,
+              loop: true,
+            });
+            music.play();
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
