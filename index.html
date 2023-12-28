@@ -712,47 +712,6 @@ fetch(apiUrl)
     }
     newquake()
   </script>
-  <script>
-    // 自動再生を行うための関数
-function playMusic() {
-  const music = new Howl({
-    src: 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3',
-    autoplay: true,
-    volume: 0.5,
-    loop: false,
-  });
-  music.play();
-}
-
-// 自動再生の許可を取るための関数
-function requestAutoplayPermission() {
-  // ユーザーのアクション（たとえば、クリックやタップ）を待つ
-  document.addEventListener('click', () => {
-    // 自動再生の許可を取るために一時的な音声を再生する
-    const tempMusic = new Howl({
-      src: 'https://saigaikinkyuu.github.io/monitor-info/audio/silence.mp3',
-      autoplay: true,
-      volume: 0,
-      loop: false,
-    });
-
-    // ユーザーのアクションによって再生された音声を停止する
-    tempMusic.once('end', () => {
-      tempMusic.unload();
-    });
-
-    // 自動再生が許可された場合、実際の音声を再生する
-    tempMusic.once('play', () => {
-      document.removeEventListener('click', requestAutoplayPermission);
-      playMusic();
-    });
-  });
-}
-
-// ページ読み込み時に自動再生の許可を取る関数を呼び出す
-document.addEventListener('DOMContentLoaded', requestAutoplayPermission);
-
-  </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
 </Body>
