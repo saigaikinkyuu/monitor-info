@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "JAPAN",
+        "JAPAN": "JAPAN",
+        "_markerType": "CircleMarker",
+        "_color": "#000000",
+        "_opacity": 0.5,
+        "_weight": 3,
+        "_fillColor": "#ff0000",
+        "_fillOpacity": 0.5,
+        "_radius": 333.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.96663,
+          36.434847
+        ]
+      }
+    }
+  ]
+}
