@@ -660,7 +660,7 @@ fetch(apiUrl)
         const json_url  = data[0].json;
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
-        const currentime = new Date()
+        const currentime = new Date("2023/12/20 10:00:00")
         if(ctt > currentime && quake_info_condition === false){
         if(quake_info_condition === false){
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
@@ -688,13 +688,98 @@ fetch(apiUrl)
             document.getElementById("magE").textContent = "マグニチュード：" + mag;
             document.getElementById("maxE").textContent = "最大震度：" + maxint;
             quake_info_condition = true;
-            const music = new Howl({
+            const warning = new Howl({
               src: 'https://saigaikinkyuu.github.io/monitor-info/audio/warning.mp3',
               autoplay: true,
               volume: 1,
               loop: false,
             });
-            music.play();
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[最大震度].mp3',
+              autoplay: true,
+              volume: 1,
+              loop: false,
+            });
+            const finalCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[quake].mp3.mp3',
+              autoplay: true,
+              volume: 1,
+              loop: false,
+            });
+            if(maxint === "1"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[1].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "2"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[2].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "3"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[3].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "4"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[4].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "5-"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5弱].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "5+"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5強].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "6-"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6弱].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "6+"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6強].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }else if(maxint === "7"){
+              const int = new Howl({
+                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[7].mp3',
+                autoplay: true,
+                volume: 1,
+                loop: false,
+              });
+            }
+            warning.play();
+            warning.once('end', ()=> {
+              firstCall.play();
+              firstCall.once('end', ()=> {
+                int.play();
+                int.once('end', ()=> {
+                  finalCall.play();
+                })
+              })
+            })
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
