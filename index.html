@@ -702,6 +702,15 @@ fetch(apiUrl)
               volume: 1,
               loop: false,
               onend: function() {
+                function finalCall(){
+                 const finalCall = new Howl({
+                   src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[quake].mp3',
+                   autoplay: true,
+                   volume: 1,
+                   loop: false,
+                 });
+                finalCall.play();
+                 }
                 if(maxint === "1"){
                 const int = new Howl({
                   src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[1].mp3',
@@ -779,15 +788,6 @@ fetch(apiUrl)
                 }
             });
             firstCall.play();
-            }
-            function finalCall(){
-            const finalCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[quake].mp3.mp3',
-              autoplay: true,
-              volume: 1,
-              loop: false,
-            });
-            finalCall.play();
             }
             warning.play();
             document.getElementById("container").style.display = "none"
