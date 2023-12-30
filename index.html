@@ -7,7 +7,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6MT5TYU2wqNvqDf25ld8C2cQxIE2YXkuxv7E2XR9Pz6zoFqAgGeSnbeg9IdPlM5n9A==" crossorigin=""/>
   <style>
+  <style>
+    #map {
+      height: 600px;
+    }
     *{
       font-family: 'M PLUS 1p', sans-serif;
     }
@@ -125,6 +130,11 @@
     <h2 style="text-align: center; color: white; font-size: 3.0rem; margin: 0px; padding-top: 230px;">更新中</h2>
     <h3 style="text-align: center; color: white; font-size: 1.7rem;">毎時00分と30分は、データ更新の時間です。</h3>
     <h3 style="text-align: center; color: white; font-size: 1.7rem;">「U」キーを押すことで、更新することもできます。</h3>
+    
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" integrity="sha512-c5vqOu9vQkOsVEb4bF/jU6RGU/rdNa7fuNeObaRqy+PB5e48tXtFug6ZYw3LWoJ/DoBf7BMj/+kO9+IiVbId4A==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-ajax/dist/leaflet.ajax.js"></script>
   </div>
   <div id="newQuake" style="background-color: #ffcd25; height: 700px; display: none; width: 100%; margin-top: 0px; padding-top: 0px;">
     <h2 style="color: white; font-size: 3.0rem; margin: 0px;" id="titleE">地震情報</h2>
@@ -794,35 +804,23 @@ fetch(apiUrl)
     newquake()
   </script>
   <script>
-    // 必要なライブラリを読み込む
-var mymap = L.map('map').setView([35.68, 139.76], 5);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(mymap);
+  // Leafletの初期化
+  var map = L.map('map').setView([35.68, 139.76], 5); // 初期表示の中心座標とズームレベル
 
-// GeoJSONデータの読み込み
-// 以下はサンプルのGeoJSONデータのURLです。実際のデータに置き換えてください。
-var geojsonURL = 'https://saigaikinkyuu.github.io/monitor-info/json/map.geojson';
+  // OpenStreetMapのタイルレイヤーを追加
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
 
-fetch(geojsonURL)
-    .then(response => response.json())
-    .then(data => {
-        // GeoJSONデータを地図に追加
-        L.geoJSON(data, {
-            style: function (feature) {
-                // 現在の時刻を取得
-                var currentTime = new Date();
-                var currentHour = currentTime.getHours();
-
-                // 時間によって色を変える
-                if (currentHour < 12) {
-                    return { color: 'blue' };
-                } else {
-                    return { color: 'orange' };
-                }
-            }
-        }).addTo(mymap);
-    });
+  // GeoJSONデータを読み込む
+  var geojsonLayer = new L.GeoJSON.AJAX("https://saigaikinkyuu.github.io/monitor-info/json/map.geojson", {
+    style: function (feature) {
+      // ここで時間に基づいてスタイルを設定
+      var currentTime = new Date().getHours();
+      // 例: 午前9時から午後5時まで、海岸線を青色に、それ以外は灰色に
+      return (currentTime >= 9 && currentTime <= 17) ? { color: 'blue' } : { color: 'gray' };
+    }
+  }).addTo(map);
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
