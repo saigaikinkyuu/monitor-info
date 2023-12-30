@@ -693,93 +693,103 @@ fetch(apiUrl)
               autoplay: true,
               volume: 1,
               loop: false,
+              onend: firstCall
             });
+            function firstCall(){
             const firstCall = new Howl({
               src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[最大震度].mp3',
               autoplay: true,
               volume: 1,
               loop: false,
+              onend: function() {
+                if(maxint === "1"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[1].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "2"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[2].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "3"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[3].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "4"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[4].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "5-"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5弱].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "5+"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5強].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "6-"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6弱].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "6+"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6強].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }else if(maxint === "7"){
+                const int = new Howl({
+                  src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[7].mp3',
+                  autoplay: true,
+                  volume: 1,
+                  loop: false,
+                  onend: finalCall
+                });
+              }
+                int.play();
+                }
+              firstCall.play();
             });
+            }
+            function finalCall(){
             const finalCall = new Howl({
               src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[quake].mp3.mp3',
               autoplay: true,
               volume: 1,
               loop: false,
             });
-            if(maxint === "1"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[1].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "2"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[2].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "3"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[3].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "4"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[4].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "5-"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5弱].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "5+"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[5強].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "6-"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6弱].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "6+"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[6強].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
-            }else if(maxint === "7"){
-              const int = new Howl({
-                src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[7].mp3',
-                autoplay: true,
-                volume: 1,
-                loop: false,
-              });
+            finalCall.play();
             }
             warning.play();
-            warning.once('end', ()=> {
-              firstCall.play();
-              firstCall.once('end', ()=> {
-                int.play();
-                int.once('end', ()=> {
-                  finalCall.play();
-                })
-              })
-            })
             document.getElementById("container").style.display = "none"
             document.getElementById("upDate").style.display = "none"
             document.getElementById("newQuake").style.display = "block"
