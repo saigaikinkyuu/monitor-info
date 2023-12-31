@@ -813,7 +813,8 @@ fetch(apiUrl)
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        const json_url  = urls[i] + data[0].json;
+        var json_url  = urls[i]
+        json_url += data[0].json;
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         var currentime = new Date()
