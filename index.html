@@ -321,6 +321,8 @@
 
               // 音量を設定
               uttr.volume = 1
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
               // 利用可能な音声の一覧を取得
               const voices = synthesis.getVoices();
 
