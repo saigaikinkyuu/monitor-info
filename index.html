@@ -303,6 +303,7 @@
             document.getElementById("area_e").textContent = "震度観測値：" + einfo;
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
             if ('speechSynthesis' in window) {
+              console.log("放送")
 
               // 発言を設定 (必須)
               const uttr = new SpeechSynthesisUtterance()
@@ -331,7 +332,7 @@
               uttr.volume = 1
 
               // 発言を再生 (必須)
-              window.speechSynthesis.speak(uttr)
+              speechSynthesis.speak(uttr)
 
            }
             setTimeout(quake, 60000); // 1秒後に再度実行
