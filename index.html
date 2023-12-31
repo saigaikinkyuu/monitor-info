@@ -268,7 +268,7 @@
            fetch(json_url_c)
           .then(response => response.json())
           .then(data => {
-            i++
+            i = i+1
             const title  = data.Control.Title;
             const coment1  = data.Head.Headline.Text;
             const time = data.Body.Earthquake.OriginTime;
