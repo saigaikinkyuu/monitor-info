@@ -815,12 +815,14 @@ fetch(apiUrl)
         const json_url  = data[0].json;
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
-        const currentime = new Date()
-        currentime.setMinutes(currentime.getMinutes-1)
+        var currentime = new Date()
+        var currentminute = currentime.getMinutes
+        currentime.setMinutes(currentminute-1)
         fetch(urls[i]+json_url)
           .then(response => response.json())
           .then(data => {
             if(i === 0){
+            console.log(urls[i]+json_url)
             var coment = data.Head.Headline.Text
             var items = data.Body.Tsunami.Forecast.Item
             var office data.Control.EditorialOffice
