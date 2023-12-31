@@ -806,8 +806,9 @@ fetch(apiUrl)
   </script>
   <script>
     function newInfo() {
-    const urls = ["https://www.jma.go.jp/bosai/quake/data/","https://www.jma.go.jp/bosai/tsunami/data/"];
+    const urls = ["https://www.jma.go.jp/bosai/tsunami/data/","https://www.jma.go.jp/bosai/quake/data/"];
       var url = urls[i] + "list.json";
+      console.log(url)
       for(var i = 0;i<urls.length;i++){
     fetch(url)
       .then(response => response.json())
