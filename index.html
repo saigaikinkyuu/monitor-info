@@ -825,7 +825,7 @@ fetch(apiUrl)
             console.log(urls[i]+json_url)
             var coment = data.Head.Headline.Text
             var items = data.Body.Tsunami.Forecast.Item
-            var office data.Control.EditorialOffice
+            var office = data.Control.EditorialOffice
             var area = ""
             for(var n = 0;n<items.length;n++){
               area += items[n].Area.Name
@@ -865,7 +865,7 @@ fetch(apiUrl)
     }
             }else if(i === 1){
               var area = "";
-              var office data.Control.EditorialOffice
+              var office = data.Control.EditorialOffice
               var coment = data.Head.Headline.Text
               var comentTsunami = data.Body.Comments.ForecastComment.Text
               var hypocenter = data.Body.Earthquake.Hypocenter.Area.Name
