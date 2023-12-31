@@ -818,6 +818,7 @@ fetch(apiUrl)
         var currentime = new Date()
         var currentminute = currentime.getMinutes
         currentime.setMinutes(currentminute-1)
+        console.log(currentime)
         fetch(urls[i]+json_url)
           .then(response => response.json())
           .then(data => {
