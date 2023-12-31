@@ -804,23 +804,31 @@ fetch(apiUrl)
     newquake()
   </script>
   <script>
-  // Leafletの初期化
-  var map = L.map('map').setView([35.68, 139.76], 5); // 初期表示の中心座標とズームレベル
+    // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+  if ('speechSynthesis' in window) {
 
-  // OpenStreetMapのタイルレイヤーを追加
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+    // 発言を設定 (必須)
+    const uttr = new SpeechSynthesisUtterance()
 
-  // GeoJSONデータを読み込む
-  var geojsonLayer = new L.GeoJSON.AJAX("https://saigaikinkyuu.github.io/monitor-info/json/map.geojson", {
-    style: function (feature) {
-      // ここで時間に基づいてスタイルを設定
-      var currentTime = new Date().getHours();
-      // 例: 午前9時から午後5時まで、海岸線を青色に、それ以外は灰色に
-      return (currentTime >= 9 && currentTime <= 17) ? { color: 'blue' } : { color: 'gray' };
-    }
-  }).addTo(map);
+    // テキストを設定 (必須)
+    uttr.text = '【読み上げたい日本語テキスト】'
+
+    // 言語を設定
+    uttr.lang = "ja-JP"
+
+    // 速度を設定
+    uttr.rate = 1
+
+    // 高さを設定
+    uttr.pitch = 1
+
+    // 音量を設定
+    uttr.volume = 1
+
+    // 発言を再生 (必須)
+    window.speechSynthesis.speak(uttr)
+
+ }
   </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
