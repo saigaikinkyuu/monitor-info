@@ -325,12 +325,9 @@
               const synthesis = window.speechSynthesis;
               // 利用可能な音声の一覧を取得
               const voices = synthesis.getVoices();
-              for(var i = 0;i<voices.length;i++){
-              console.log(voices[i].name)
-              }
 
               // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
-              const selectedVoice = voices[1];
+              const selectedVoice = voices[0];
               uttr.voice = selectedVoice;
 
               // 発言を再生 (必須)
