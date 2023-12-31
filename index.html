@@ -809,12 +809,12 @@ fetch(apiUrl)
     const urls = ["https://www.jma.go.jp/bosai/tsunami/data/","https://www.jma.go.jp/bosai/quake/data/"];
       for(var i = 0;i<urls.length;i++){
       var url = urls[i] + "list.json";
-      console.log(url)
     fetch(url)
       .then(response => response.json())
       .then(data => {
         var json_url  = urls[i]
         json_url += data[0].json;
+        console.log(json_url)
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         var currentime = new Date()
