@@ -303,12 +303,20 @@
             document.getElementById("area_e").textContent = "震度観測値：" + einfo;
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
             if ('speechSynthesis' in window) {
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
 
               // 発言を設定 (必須)
               const uttr = new SpeechSynthesisUtterance()
 
               // テキストを設定 (必須)
-              uttr.text = '地震が発生しました。'
+              uttr.text = time_e + title + coment1 + coment2 + hypocenter + mag + maxint + einfo;
 
               // 言語を設定
               uttr.lang = "ja-JP"
@@ -321,14 +329,6 @@
 
               // 音量を設定
               uttr.volume = 1
-              // 音声合成用のオブジェクトを生成
-              const synthesis = window.speechSynthesis;
-              // 利用可能な音声の一覧を取得
-              const voices = synthesis.getVoices();
-
-              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
-              const selectedVoice = voices[24];
-              uttr.voice = selectedVoice;
 
               // 発言を再生 (必須)
               window.speechSynthesis.speak(uttr)
