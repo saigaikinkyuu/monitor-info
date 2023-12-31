@@ -806,16 +806,12 @@ fetch(apiUrl)
   </script>
   <script>
     function newInfo() {
-    const urls = ["https://www.jma.go.jp/bosai/tsunami/data/","https://www.jma.go.jp/bosai/quake/data/"];
-      for(var i = 0;i<urls.length;i++){
-        console.log(i)
-      var url_A = urls[i] + "list.json";
-      var url = urls[i]
-    fetch(url_A)
+      tsunamiInfo()
+      function tsunamiInfo(){
+    fetch("https://www.jma.go.jp/bosai/tsunami/data/list.json")
       .then(response => response.json())
       .then(data => {
-        var json_url  = url;
-        json_url += data[0].json;
+        var json_url  = "https://www.jma.go.jp/bosai/tsunami/data/" + data[0].json;
         console.log(json_url)
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
@@ -826,8 +822,6 @@ fetch(apiUrl)
         fetch(json_url)
           .then(response => response.json())
           .then(data => {
-            if(i === 0){
-            console.log(urls[i]+json_url)
             var coment = data.Head.Headline.Text
             var items = data.Body.Tsunami.Forecast.Item
             var office = data.Control.EditorialOffice
@@ -867,8 +861,25 @@ fetch(apiUrl)
 
     // 発言を再生 (必須)
     speechSynthesis.speak(uttr)
-    }
-            }else if(i === 1){
+    quakeInfo()
+    }})
+                })
+            }
+      function quakeInfo(){
+    fetch("https://www.jma.go.jp/bosai/quake/data/list.json")
+      .then(response => response.json())
+      .then(data => {
+        var json_url  = "https://www.jma.go.jp/bosai/quake/data/" + data[0].json;
+        console.log(json_url)
+        const title  = data[0].ttl;
+        const ctt  = new Date(data[0].rdt);
+        var currentime = new Date()
+        var currentminute = currentime.getMinutes
+        currentime.setMinutes(currentminute-1)
+        console.log(currentime)
+        fetch(json_url)
+          .then(response => response.json())
+          .then(data => {
               var area = "";
               var office = data.Control.EditorialOffice
               var coment = data.Head.Headline.Text
@@ -917,10 +928,9 @@ fetch(apiUrl)
     // 発言を再生 (必須)
     speechSynthesis.speak(uttr)
     }
-            }
           })
-    })
-      }
+      })
+    }
     }
     newInfo();
   </script>
