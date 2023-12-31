@@ -258,7 +258,7 @@
   </script>
   <script>
     function quake() {
-    const i = 0
+    const u = 0
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
       .then(response => response.json())
@@ -268,7 +268,8 @@
            fetch(json_url_c)
           .then(response => response.json())
           .then(data => {
-            i = i+1
+            u += 1
+            console.log(u)
             const title  = data.Control.Title;
             const coment1  = data.Head.Headline.Text;
             const time = data.Body.Earthquake.OriginTime;
@@ -304,7 +305,7 @@
             document.getElementById("maxint_e").textContent = "最大震度：" + maxint;
             document.getElementById("area_e").textContent = "震度観測値：" + einfo;
             console.log("放送")
-            if(i === 1){
+            if(i === 01){
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
             if ('speechSynthesis' in window) {
 
