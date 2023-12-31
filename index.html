@@ -811,14 +811,14 @@ fetch(apiUrl)
     fetch(urls[i]+"list.json")
       .then(response => response.json())
       .then(data => {
-        const json_url  = data[0].json;
+        const json_url  = urls[i] + data[0].json;
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         var currentime = new Date()
         var currentminute = currentime.getMinutes
         currentime.setMinutes(currentminute-1)
         console.log(currentime)
-        fetch(urls[i]+json_url)
+        fetch(json_url)
           .then(response => response.json())
           .then(data => {
             if(i === 0){
