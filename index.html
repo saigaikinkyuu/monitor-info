@@ -268,7 +268,7 @@
            fetch(json_url_c)
           .then(response => response.json())
           .then(data => {
-            u += 1
+            u++
             console.log(u)
             const title  = data.Control.Title;
             const coment1  = data.Head.Headline.Text;
@@ -305,7 +305,7 @@
             document.getElementById("maxint_e").textContent = "最大震度：" + maxint;
             document.getElementById("area_e").textContent = "震度観測値：" + einfo;
             console.log("放送")
-            if(i === 01){
+            if(u === 1){
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
             if ('speechSynthesis' in window) {
 
