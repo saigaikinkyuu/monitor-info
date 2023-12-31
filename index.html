@@ -321,6 +321,12 @@
 
               // 音量を設定
               uttr.volume = 1
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[0];
+              uttr.voice = selectedVoice;
 
               // 発言を再生 (必須)
               window.speechSynthesis.speak(uttr)
