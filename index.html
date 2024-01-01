@@ -830,6 +830,7 @@ fetch(apiUrl)
               area += items[n].Area.Name
             }
             var announceText = ctt.getFullYear() + "年" + ctt.getMonth() + "月" + ctt.getDate() + "日" + ctt.getHours() + "時" + ctt.getMinutes() + "分に" + office + "が発表した内容です。" + coment + "発表地域です。" + area
+            console.log(annoumceText)
               // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
     if ('speechSynthesis' in window) {
 
@@ -896,6 +897,7 @@ fetch(apiUrl)
                 }
               }
               var announceText = ctt.getFullYear() + "年" + ctt.getMonth() + "月" + ctt.getDate() + "日" + ctt.getHours() + "時" + ctt.getMinutes() + "分に" + office + "が発表した内容です。" + coment + "また、" + comentTsunami + "この地震の、詳細情報です。地震観測時刻、" + ctt.getHours() + "時" + ctt.getMinutes() + "分、震源地、" + hypocenter + "、最大震度、" + maxInt + "、マグニチュード、" + mag + "、震度観測地、" + area;
+            console.log(annoumceText)
     // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
     if ('speechSynthesis' in window) {
 
