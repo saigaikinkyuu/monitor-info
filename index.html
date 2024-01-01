@@ -827,7 +827,7 @@ fetch(apiUrl)
             var office = data.Control.EditorialOffice
             var area = ""
             for(var n = 0;n<items.length;n++){
-              area += items[n].Area.Name
+              area += items[n].Area.Name + "、"
             }
             var announceText = ctt.getFullYear() + "年" + ctt.getMonth() + "月" + ctt.getDate() + "日" + ctt.getHours() + "時" + ctt.getMinutes() + "分に" + office + "が発表した内容です。" + coment + "発表地域です。" + area
             announce(announceText)
@@ -862,7 +862,7 @@ fetch(apiUrl)
               for(var n = 0;n<items.length;n++){
                 var areas = items[n].Area
                 for(var m = 0;m<areas.length;m++){
-                  area += areas[m].Name + "震度、" + areas[m].MaxInt
+                  area += areas[m].Name + "震度、" + areas[m].MaxInt + "、"
                 }
               }
               var announceText = ctt.getFullYear() + "年" + ctt.getMonth() + "月" + ctt.getDate() + "日" + ctt.getHours() + "時" + ctt.getMinutes() + "分に" + office + "が発表した内容です。" + coment + "また、" + comentTsunami + "この地震の、詳細情報です。地震観測時刻、" + ctt.getHours() + "時" + ctt.getMinutes() + "分、震源地、" + hypocenter + "、最大震度、" + maxInt + "、マグニチュード、" + mag + "、震度観測地、" + area;
