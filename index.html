@@ -873,7 +873,8 @@ fetch(apiUrl)
       function announce(announceText){
     // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
     if ('speechSynthesis' in window) {
-      console.log("放送")
+      console.log(announceText)
+      var announceText = "これは、テストテキストです。"
 
     // 発言を設定 (必須)
     const uttr = new SpeechSynthesisUtterance()
