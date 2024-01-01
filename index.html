@@ -877,7 +877,7 @@ fetch(apiUrl)
       var announceText = "これは、テストテキストです。"
 
     // 発言を設定 (必須)
-    const uttr = new SpeechSynthesisUtterance()
+    const uttr = new SpeechSynthesisUtterance(announceText)
     // 音声合成用のオブジェクトを生成
     const synthesis = window.speechSynthesis;
     // 利用可能な音声の一覧を取得
@@ -886,9 +886,6 @@ fetch(apiUrl)
     // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
     const selectedVoice = voices[24];
     uttr.voice = selectedVoice;
-
-    // テキストを設定 (必須)
-    uttr.text = announceText;
 
     // 言語を設定
     uttr.lang = "ja-JP"
