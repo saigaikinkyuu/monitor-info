@@ -695,6 +695,7 @@ fetch(apiUrl)
       }
     var quake_info_condition = false;
     function newquake() {
+    announceQuake("情報を更新しました")
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
       .then(response => response.json())
