@@ -671,7 +671,8 @@ fetch(apiUrl)
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         const currentime = new Date()
-        currentime.setMinutes(new Date().getMinutes-1)
+        currentime.setMinutes(new Date().getMinutes()-1)
+        console.log(currentime)
         if(ctt > currentime && quake_info_condition === false){
         if(quake_info_condition === false){
         const json_url_c = "https://www.jma.go.jp/bosai/quake/data/" + json_url;
