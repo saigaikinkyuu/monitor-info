@@ -715,71 +715,6 @@ fetch(apiUrl)
               loop: false
             });
             firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int2].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int3].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int4].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int5-].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int5+].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int6-].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int6+].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }else if(maxint === "2"){
-            const firstCall = new Howl({
-              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int7].mp3',
-              autoplay: true,
-              volume: 3,
-              loop: false
-            });
-            firstCall.play();
-            }
               // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
               if ('speechSynthesis' in window) {
               // 発言を設定 (必須)
@@ -808,6 +743,295 @@ fetch(apiUrl)
               // 発言を再生 (必須)
               window.speechSynthesis.speak(uttr)
               }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int2].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int3].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int4].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int5-].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int5+].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int6-].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int6+].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }else if(maxint === "2"){
+            const firstCall = new Howl({
+              src: 'https://saigaikinkyuu.github.io/monitor-info/audio/announce[Int7].mp3',
+              autoplay: true,
+              volume: 3,
+              loop: false
+            });
+            firstCall.play();
+              // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+              if ('speechSynthesis' in window) {
+              // 発言を設定 (必須)
+              const uttr = new SpeechSynthesisUtterance(coment2)
+              // 音声合成用のオブジェクトを生成
+              const synthesis = window.speechSynthesis;
+              // 利用可能な音声の一覧を取得
+              const voices = synthesis.getVoices();
+
+              // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+              const selectedVoice = voices[24];
+              uttr.voice = selectedVoice;
+
+              // 言語を設定
+              uttr.lang = "ja-JP"
+
+              // 速度を設定
+              uttr.rate = 1.5
+
+              // 高さを設定
+              uttr.pitch = 1
+
+              // 音量を設定
+              uttr.volume = 1
+
+              // 発言を再生 (必須)
+              window.speechSynthesis.speak(uttr)
+              }
+            }
             }
             warning.play();
             document.getElementById("container").style.display = "none"
