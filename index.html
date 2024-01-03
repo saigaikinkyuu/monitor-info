@@ -816,7 +816,7 @@ fetch(apiUrl)
         const title  = data[0].ttl;
         const ctt  = new Date(data[0].rdt);
         var currentime = new Date()
-        var currentminute = currentime.getMinutes
+        var currentminute = currentime.getMinutes()
         currentime.setMinutes(currentminute-1)
         console.log(currentime)
         fetch(json_url)
