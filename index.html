@@ -955,7 +955,6 @@ fetch(apiUrl)
     newInfo();
   </script>
   <script>
-  let flagWarning = false
   let keyPressStartTime; // Aキーが押された時刻を格納する変数
 
   // キーが押されたときの処理
@@ -997,12 +996,10 @@ fetch(apiUrl)
       volume: 3,
       loop: true
     });
-    if(flagWarning === false){
-    flagWarning = true
-    warning.play();
-    }else if(flagWarning === true){
-    flagWarning = false
+    if(warning.playing()){){
     warning.stop();
+    }else{
+    warning.play();
     }
     }
   });
