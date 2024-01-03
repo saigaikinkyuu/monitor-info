@@ -983,7 +983,7 @@ fetch(apiUrl)
     // Aキーを長押ししていた時間を計算
     const keyPressDuration = keyReleaseTime - keyPressStartTime;
     console.log(keyPressDuration)
-    if(keyPressDuration>3){
+    if(keyPressDuration>3000){
 
 
     // Aキーが離されたことをコンソールログに出力
@@ -996,6 +996,7 @@ fetch(apiUrl)
     }
     warning.play();
     // Aキーが離されたので、Aキーが押された時刻をリセット
+    keyPressStartTime = null;
     keyPressStartTime = null;
   });
   </script>
