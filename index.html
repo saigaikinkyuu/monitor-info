@@ -674,7 +674,7 @@ fetch(apiUrl)
     const selectedVoice = voices[24];
     uttr.voice = selectedVoice;
     uttr.lang = "ja-JP";
-    uttr.rate = 1.5;
+    uttr.rate = 1;
     uttr.pitch = 1;
     uttr.volume = 1;
 
@@ -982,6 +982,7 @@ fetch(apiUrl)
 
     // Aキーを長押ししていた時間を計算
     const keyPressDuration = keyReleaseTime - keyPressStartTime;
+    console.log(keyPressDuration)
     if(keyPressDuration>3){
 
 
