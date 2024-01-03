@@ -983,6 +983,9 @@ fetch(apiUrl)
     // Aキーを長押ししていた時間を計算
     const keyPressDuration = keyReleaseTime - keyPressStartTime;
     console.log(keyPressDuration)
+    // Aキーが離されたので、Aキーが押された時刻をリセット
+    keyPressStartTime = null;
+    keyPressStartTime = null;
     if(keyPressDuration>3000){
 
 
@@ -993,11 +996,8 @@ fetch(apiUrl)
       volume: 3,
       loop: true
     });
-    }
     warning.play();
-    // Aキーが離されたので、Aキーが押された時刻をリセット
-    keyPressStartTime = null;
-    keyPressStartTime = null;
+    }
   });
   </script>
   <script src="./js/slide-content.js"></script>
