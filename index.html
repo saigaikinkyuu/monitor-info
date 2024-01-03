@@ -864,7 +864,7 @@ fetch(apiUrl)
       })      
       }
       function quakeInfo(){
-    fetch("https://www.jma.go.jp/bosai/quake/data/list.json")
+      fetch("https://www.jma.go.jp/bosai/quake/data/list.json")
       .then(response => response.json())
       .then(data => {
         var json_url  = "https://www.jma.go.jp/bosai/quake/data/" + data[0].json;
@@ -897,6 +897,7 @@ fetch(apiUrl)
           })
           }
       })
+    setTimeout(quakeInfo, 10000); // 1秒後に再度実行
     }
       function announce(announceText){
     // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
@@ -930,7 +931,7 @@ fetch(apiUrl)
     window.speechSynthesis.speak(uttr)
     }
       }
-    }
+            }
     newInfo();
   </script>
   <script src="./js/slide-content.js"></script>
