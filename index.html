@@ -664,10 +664,8 @@ fetch(apiUrl)
       function announceQuake(announceText){
     // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
     if ('speechSynthesis' in window) {
-      console.log(announceText)
-
     // 発言を設定 (必須)
-    const uttr = new SpeechSynthesisUtterance(announceText)
+    const uttr = new SpeechSynthesisUtterance("情報が更新されました")
     // 音声合成用のオブジェクトを生成
     const synthesis = window.speechSynthesis;
     // 利用可能な音声の一覧を取得
@@ -695,7 +693,7 @@ fetch(apiUrl)
       }
     var quake_info_condition = false;
     function newquake() {
-    announceQuake("情報を更新しました")
+      announceQuake("A")
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
     fetch(url)
       .then(response => response.json())
