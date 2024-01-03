@@ -982,9 +982,8 @@ fetch(apiUrl)
 
     // Aキーを長押ししていた時間を計算
     const keyPressDuration = keyReleaseTime - keyPressStartTime;
+    if(keyPressDuration>3){
 
-    // Aキーが離されたので、Aキーが押された時刻をリセット
-    keyPressStartTime = null;
 
     // Aキーが離されたことをコンソールログに出力
     const warning = new Howl({
@@ -993,7 +992,10 @@ fetch(apiUrl)
       volume: 3,
       loop: true
     });
+    }
     warning.play();
+    // Aキーが離されたので、Aキーが押された時刻をリセット
+    keyPressStartTime = null;
   });
   </script>
   <script src="./js/slide-content.js"></script>
