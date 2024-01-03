@@ -954,6 +954,48 @@ fetch(apiUrl)
             }
     newInfo();
   </script>
+  <script>
+  let keyPressStartTime; // Aキーが押された時刻を格納する変数
+
+  // キーが押されたときの処理
+  document.addEventListener('keydown', function(event) {
+    // キーがAキーでない場合は何もしない
+    if (event.key !== '1') return;
+
+    // Aキーが既に押されている場合は何もしない
+    if (keyPressStartTime) return;
+
+    // Aキーが押された時刻を記録
+    keyPressStartTime = new Date().getTime();
+
+    // Aキーの押されたことをコンソールログに出力
+    console.log('Aキーが押されました');
+  });
+
+  // キーが離されたときの処理
+  document.addEventListener('keyup', function(event) {
+    // キーがAキーでない場合は何もしない
+    if (event.key !== '1') return;
+
+    // Aキーが離された時刻を記録
+    const keyReleaseTime = new Date().getTime();
+
+    // Aキーを長押ししていた時間を計算
+    const keyPressDuration = keyReleaseTime - keyPressStartTime;
+
+    // Aキーが離されたので、Aキーが押された時刻をリセット
+    keyPressStartTime = null;
+
+    // Aキーが離されたことをコンソールログに出力
+    const warning = new Howl({
+      src: 'https://saigaikinkyuu.github.io/monitor-info/audio/warning[sos].mp3',
+      autoplay: true,
+      volume: 3,
+      loop: true
+    });
+    warning.play();
+  });
+  </script>
   <script src="./js/slide-content.js"></script>
   <script src="./js/text-scroll.js"></script>
 </Body>
