@@ -661,6 +661,38 @@ fetch(apiUrl)
     }
   </script>
   <script>
+      function announceQuake(announceText){
+    // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
+    if ('speechSynthesis' in window) {
+      console.log(announceText)
+
+    // 発言を設定 (必須)
+    const uttr = new SpeechSynthesisUtterance(announceText)
+    // 音声合成用のオブジェクトを生成
+    const synthesis = window.speechSynthesis;
+    // 利用可能な音声の一覧を取得
+    const voices = synthesis.getVoices();
+
+    // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
+    const selectedVoice = voices[24];
+    uttr.voice = selectedVoice;
+
+    // 言語を設定
+    uttr.lang = "ja-JP"
+
+    // 速度を設定
+    uttr.rate = 1.5
+
+    // 高さを設定
+    uttr.pitch = 1
+
+    // 音量を設定
+    uttr.volume = 1
+
+    // 発言を再生 (必須)
+    window.speechSynthesis.speak(uttr)
+    }
+      }
     var quake_info_condition = false;
     function newquake() {
     const url = "https://www.jma.go.jp/bosai/quake/data/list.json";
@@ -714,7 +746,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -725,7 +757,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -736,7 +768,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -747,7 +779,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -758,7 +790,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -769,7 +801,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -780,7 +812,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -791,7 +823,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
@@ -802,7 +834,7 @@ fetch(apiUrl)
               volume: 3,
               loop: false,
               onend: function() {
-              announce(coment2)
+              announceQuake(coment2)
             }
             });
             firstCall.play();
