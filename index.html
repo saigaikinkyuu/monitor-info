@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.js" defer></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6MT5TYU2wqNvqDf25ld8C2cQxIE2YXkuxv7E2XR9Pz6zoFqAgGeSnbeg9IdPlM5n9A==" crossorigin=""/>
   <style>
   <style>
     #map {
@@ -665,7 +664,7 @@ fetch(apiUrl)
     // ブラウザにWeb Speech API Speech Synthesis機能があるか判定        
     if ('speechSynthesis' in window) {
     // 発言を設定 (必須)
-    const uttr = new SpeechSynthesisUtterance("情報が更新されました")
+    const uttr = new SpeechSynthesisUtterance(announceText);
     // 音声合成用のオブジェクトを生成
     const synthesis = window.speechSynthesis;
     // 利用可能な音声の一覧を取得
@@ -674,21 +673,13 @@ fetch(apiUrl)
     // 例として、最初の音声を使用していますが、実際には好みの音声を選択できます
     const selectedVoice = voices[24];
     uttr.voice = selectedVoice;
-
-    // 言語を設定
-    uttr.lang = "ja-JP"
-
-    // 速度を設定
-    uttr.rate = 1.5
-
-    // 高さを設定
-    uttr.pitch = 1
-
-    // 音量を設定
-    uttr.volume = 1
+    uttr.lang = "ja-JP";
+    uttr.rate = 1.5;
+    uttr.pitch = 1;
+    uttr.volume = 1;
 
     // 発言を再生 (必須)
-    window.speechSynthesis.speak(uttr)
+    window.speechSynthesis.speak(uttr);
     }
       }
     var quake_info_condition = false;
